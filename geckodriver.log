@@ -24,3 +24,5 @@
 1537300132947	Marionette	INFO	Stopped listening on port 45011
 1537300133332	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for https://www.hackerrank.com/shan61916?hr_r=1
 1537300144069	Marionette	DEBUG	[2147483649] Received DOM event pageshow for https://www.hackerrank.com/shan61916?hr_r=1
+[Parent 7222, Gecko_IOThread] WARNING: pipe error (58): Connection reset by peer: file /build/firefox-_R2Kgd/firefox-62.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1537300277683	Marionette	INFO	Stopped listening on port 36305
