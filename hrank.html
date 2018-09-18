@@ -1,0 +1,884 @@
+<html lang="en-us" style="--font-family-text:OpenSans, Arial, Helvetica, sans-serif; --font-family-input:SourceCodePro, monaco, Courier, monospace;"><head>
+  <meta charset="utf-8"/>
+  
+  
+        
+        <meta content="Join over 4 million developers in solving code challenges on HackerRank, one of the best ways to prepare for programming interviews." id="meta-description" name="description"/><meta content="Join over 4 million developers in solving code challenges on HackerRank, one of the best ways to prepare for programming interviews." id="meta-og-description" property="og:description"/><meta content="HackerRank" id="meta-og-site" property="og:site_name"/><meta content="https://www.facebook.com/hackerrank" property="article:author"/><meta content="summary" id="meta-twitter-card" name="twitter:card"/><meta content="@hackerrank" id="meta-twitter-site" name="twitter:site"/><meta content="https://www.hackerrank.com/shan61916" id="meta-twitter-url" name="twitter:url"/><meta content="HackerRank" id="meta-twitter-title" name="twitter:title"/><meta content="347499128655783" id="meta-fb-id" property="fb:app_id"/><meta content="authenticity_token" id="csrf-param" name="csrf-param"/><meta content="pnaqBCL4K9clNPfFmd7ZnuOAJFLtgiYaYVUtVyG+ZEME8NhfJMIy/Rocw7n8OAih4w/8Netu5KSiktnt+UT5yw==" id="csrf-token" name="csrf-token"/>
+        <link href="https://www.hackerrank.com/shan61916" rel="canonical"/>
+        
+      
+  <script async="" src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" type="text/javascript"></script><script async="" src="https://ssl.google-analytics.com/ga.js" type="text/javascript"></script><script>/*!
+ * JavaScript Cookie v2.1.3
+ * https://github.com/js-cookie/js-cookie
+ *
+ * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
+ * Released under the MIT license
+ */
+;(function (factory) {
+	var registeredInModuleLoader = false;
+	if (typeof define === 'function' && define.amd) {
+		define(factory);
+		registeredInModuleLoader = true;
+	}
+	if (typeof exports === 'object') {
+		module.exports = factory();
+		registeredInModuleLoader = true;
+	}
+	if (!registeredInModuleLoader) {
+		var OldCookies = window.Cookies;
+		var api = window.Cookies = factory();
+		api.noConflict = function () {
+			window.Cookies = OldCookies;
+			return api;
+		};
+	}
+}(function () {
+	function extend () {
+		var i = 0;
+		var result = {};
+		for (; i < arguments.length; i++) {
+			var attributes = arguments[ i ];
+			for (var key in attributes) {
+				result[key] = attributes[key];
+			}
+		}
+		return result;
+	}
+
+	function init (converter) {
+		function api (key, value, attributes) {
+			var result;
+			if (typeof document === 'undefined') {
+				return;
+			}
+
+			// Write
+
+			if (arguments.length > 1) {
+				attributes = extend({
+					path: '/'
+				}, api.defaults, attributes);
+
+				if (typeof attributes.expires === 'number') {
+					var expires = new Date();
+					expires.setMilliseconds(expires.getMilliseconds() + attributes.expires * 864e+5);
+					attributes.expires = expires;
+				}
+
+				try {
+					result = JSON.stringify(value);
+					if (/^[\{\[]/.test(result)) {
+						value = result;
+					}
+				} catch (e) {}
+
+				if (!converter.write) {
+					value = encodeURIComponent(String(value))
+						.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+				} else {
+					value = converter.write(value, key);
+				}
+
+				key = encodeURIComponent(String(key));
+				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
+				key = key.replace(/[\(\)]/g, escape);
+
+				return (document.cookie = [
+					key, '=', value,
+					attributes.expires ? '; expires=' + attributes.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+					attributes.path ? '; path=' + attributes.path : '',
+					attributes.domain ? '; domain=' + attributes.domain : '',
+					attributes.secure ? '; secure' : ''
+				].join(''));
+			}
+
+			// Read
+
+			if (!key) {
+				result = {};
+			}
+
+			// To prevent the for loop in the first place assign an empty array
+			// in case there are no cookies at all. Also prevents odd result when
+			// calling "get()"
+			var cookies = document.cookie ? document.cookie.split('; ') : [];
+			var rdecode = /(%[0-9A-Z]{2})+/g;
+			var i = 0;
+
+			for (; i < cookies.length; i++) {
+				var parts = cookies[i].split('=');
+				var cookie = parts.slice(1).join('=');
+
+				if (cookie.charAt(0) === '"') {
+					cookie = cookie.slice(1, -1);
+				}
+
+				try {
+					var name = parts[0].replace(rdecode, decodeURIComponent);
+					cookie = converter.read ?
+						converter.read(cookie, name) : converter(cookie, name) ||
+						cookie.replace(rdecode, decodeURIComponent);
+
+					if (this.json) {
+						try {
+							cookie = JSON.parse(cookie);
+						} catch (e) {}
+					}
+
+					if (key === name) {
+						result = cookie;
+						break;
+					}
+
+					if (!key) {
+						result[name] = cookie;
+					}
+				} catch (e) {}
+			}
+
+			return result;
+		}
+
+		api.set = api;
+		api.get = function (key) {
+			return api.call(api, key);
+		};
+		api.getJSON = function () {
+			return api.apply({
+				json: true
+			}, [].slice.call(arguments));
+		};
+		api.defaults = {};
+
+		api.remove = function (key, attributes) {
+			api(key, '', extend(attributes, {
+				expires: -1
+			}));
+		};
+
+		api.withConverter = init;
+
+		return api;
+	}
+
+	return init(function () {});
+}));
+</script>
+  <style>
+  .cdn-error-view {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: white;
+    z-index: 9999;
+    font-family: "Whitney SSm A", "Whitney SSm B", "Avenir", "Segoe UI", "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .cdn-error-view .error-box-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .cdn-error-view .error-icon {
+    text-align: center;
+  }
+  .cdn-error-view .error-title {
+    font-size: 48px;
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+  .cdn-error-view .error-message {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  .cdn-error-view .btn-wrap {
+    margin-top: 20px;
+  }
+  .cdn-error-view .btn-reload {
+    width: 300px;
+    padding: 10px;
+    border-radius: 3px;
+    border-color: #088837;
+    border-bottom-color: #007827;
+    border-width: 1px;
+    border-style: solid;
+    color : #FFF;
+    background-color: #2ec866;
+    background-image: -webkit-gradient(linear, top left, bottom left, color-stop(0, #2ec866), color-stop(1, #29b35b));
+    background-image: -webkit-linear-gradient(top, #2ec866, #29b35b);
+    background-image: linear-gradient(top, #2ec866, #29b35b);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1), inset 0 -1px 4px rgba(32, 138, 70, 0.3);
+    outline: none;
+  }
+</style>
+
+
+<script>
+  var cdnLoaded = false;
+
+  var checkForWorkingCDN = (function() {
+    //this two value should come from configuration
+    var cdns = ["hrcdn.net","d3keuzeb2crhkn.cloudfront.net"];
+    var cdnUrl = Cookies.get('cdn_url') || cdns[0];
+    var filePath = "https://hrcdn.net/hackerrank/assets/cdnping-e4dfec54a83d6e6bc9baf3ce741ae25e.js";
+
+    //extract pathname from url
+    var urlRegex = /^[^#]*?:\/\/.*?(\/.*)$/ ;
+    var match = filePath.match(urlRegex);
+    if(match) filePath = match[1];
+
+    //add current cdn on first of array
+    cdns.splice(cdns.indexOf(cdnUrl), 1);
+    cdns.unshift(cdnUrl);
+
+    var cdnIndx = 0;
+
+    function tryCurrentCDN() {
+      if (cdnUrl) document.write('<script src="https://' + cdnUrl + filePath + '?' + Date.now() + '"><\/script>');
+      document.write('<script>checkForWorkingCDN();<\/script>');
+    }
+
+    //try the current cdn
+    tryCurrentCDN();
+
+    return function() {
+      if (cdnUrl && cdnLoaded) {
+        Cookies.set('cdn_url', cdnUrl, {expires: 3});
+        Cookies.set('cdn_set', 'true', {expires: 3});
+        if (cdnIndx !== 0) {
+          document.location.reload();
+        }
+
+        //if cdnUrl not loaded check the next cdn;
+      } else if (cdnUrl) {
+        //track all the failed cdn
+        var failedCdns = Cookies.get('failed_cdn_hosts');
+        if (failedCdns) {
+          failedCdns = JSON.parse(failedCdns);
+        } else {
+          failedCdns = [];
+        }
+
+        failedCdns.push(cdnUrl);
+        var fifteenMinuteFromNow = new Date();
+        fifteenMinuteFromNow.setMinutes(15);
+        Cookies.set('failed_cdn_hosts', JSON.stringify(failedCdns), {expires: fifteenMinuteFromNow});
+        Cookies.set("cdn_url_switched", "true", {expires: fifteenMinuteFromNow});
+
+        //try next cdn
+        cdnIndx += 1;
+        cdnUrl = cdns[cdnIndx];
+        tryCurrentCDN();
+
+        //if no cdn left to check and none of loaded return err
+      } else {
+        Cookies.remove('cdn_url');
+        return 'cdnerror';
+      }
+    }
+  }());
+</script><script src="https://hrcdn.net/hackerrank/assets/cdnping-e4dfec54a83d6e6bc9baf3ce741ae25e.js?1537300129397"></script><script>checkForWorkingCDN();</script>
+
+<script>
+  //track cdn related matrices
+  (function() {
+    var allCdns = ["hrcdn.net","d3keuzeb2crhkn.cloudfront.net"];
+
+    var metrics = [];
+    var defaultCdn = Cookies.get('default_cdn_url');
+
+    //method to track the events
+    function appTrack(key, attrs) {
+      attrs = attrs || {};
+      attrs.uid = Cookies.get('hackerrank_mixpanel_token')
+      metrics.push({
+        'key': key,
+        'meta_data': attrs
+      });
+    }
+
+    function sendMetrices() {
+      if (!XMLHttpRequest) return;
+      var xhr = new XMLHttpRequest();
+      var metrics_endpoint = 'https://metrics.hackerrank.com/app_metrics'; // Todo : this need to move on configuration
+
+      if (!xhr) return;
+
+      xhr.open("POST", metrics_endpoint, true);
+
+      //set xhr headers and options
+      xhr.setRequestHeader('Content-Type', 'application/json');
+      xhr.withCredentials = true;
+
+      xhr.send(JSON.stringify({
+        data: metrics,
+        default_cdn_url: defaultCdn,
+        document_referrer: document.referrer
+      }));
+    }
+
+    var cdnUrl = Cookies.get('cdn_url');
+    var failedCdns = Cookies.get('failed_cdn_hosts');
+
+    var cdnMetrices = {};
+
+    //track used cdn host
+    if (cdnUrl) {
+      cdnMetrices['used-cdn'] = cdnUrl;
+      cdnMetrices['cdn-index'] = allCdns.indexOf(cdnUrl) + 1;
+      cdnMetrices['all-failed'] = false;
+    //track if all cdn failed (If cdnUrl is not set it means all cdn url failed)
+    } else {
+      cdnMetrices['used-cdn'] = '';
+      cdnMetrices['cdn-index'] = 999;
+      cdnMetrices['all-failed'] = true;
+    }
+
+    appTrack('cdn-metrices', cdnMetrices);
+
+    //track failed cdn
+    if (failedCdns) {
+      failedCdns = JSON.parse(failedCdns);
+      Cookies.remove('failed_cdn_hosts');
+      failedCdns.forEach(function(cdn) {
+        appTrack('failed-cdn-host', {
+          cdn: cdn
+        });
+      });
+    }
+
+    //send metrics
+    sendMetrices();
+
+  }());
+</script>
+
+
+  
+
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="https://hrcdn.net/hackerrank/assets/favicon-95dc36c7e91ed5f1841649303c027edb.png" rel="icon" type="image/png"/>
+
+  <!-- Prefetch dns on production -->
+  
+    <link href="//hrcdn.net" rel="dns-prefetch"/>
+    <link href="//d3keuzeb2crhkn.cloudfront.net" rel="dns-prefetch"/>
+    <link href="//notifications.hackerrank.com" rel="dns-prefetch"/>
+    <link href="//api.mixpanel.com" rel="dns-prefetch"/>
+    <link href="//metrics.hackerrank.com" rel="dns-prefetch"/>
+    <link href="https://sentry.io" rel="preconnect"/>
+    <link href="//sentry.io" rel="dns-prefetch"/>
+  
+
+  
+    <link href="https://hrcdn.net/hackerrank/assets/hackerrank_libraries-21fce5f00a5704ab97ea6e29f618ca7f.css" media="all" rel="stylesheet"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_libraries-21fce5f00a5704ab97ea6e29f618ca7f.css" rel="stylesheet"/>
+
+    <link href="https://hrcdn.net/hackerrank/assets/hackerrank-core-34a38d5e53237acdb04bd3cfa307ab90.css" media="all" rel="stylesheet"/>
+
+    
+      <link href="https://hrcdn.net/hackerrank/assets/dashboard-e26d916d8859b521a068330828d9578e.css" media="all" rel="stylesheet"/>
+    
+  
+
+
+  
+
+  <link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_app-87555ca29cfe72641a07.css" rel="stylesheet" type="text/css"/>
+  
+    <link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_community~hackerrank_r_work-23d55c606429571d12aa.css" rel="stylesheet" type="text/css"/>
+  
+    <link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_community-c541d5600091e9f67b6a.css" rel="stylesheet" type="text/css"/>
+  
+    <link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_community-7d11aac62d3a6b6eddf6.css" rel="stylesheet" type="text/css"/>
+  
+    <link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_profile-b119650cf664f4edd57f.css" rel="stylesheet" type="text/css"/>
+  
+
+  <!-- Prefetch / preload assets on production -->
+  
+
+    <!-- Prefetch old assets -->
+    
+      <link href="https://hrcdn.net/hackerrank/assets/hackerrank-29975682f302f0fbbdae252d97e4788d.js" rel="prefetch"/>
+    
+      <link href="https://hrcdn.net/hackerrank/assets/base-4e953f9582ddc0e62ee5b02dbe2520ca.js" rel="prefetch"/>
+    
+      <link href="https://hrcdn.net/hackerrank/assets/hackerrank_libraries-ee40391d20d8d00f36e1a0af1ee56beb.js" rel="prefetch"/>
+    
+    <!-- Prefetch old assets end-->
+
+    <!-- preload scripts required on the same page -->
+    <link as="script" href="https://hrcdn.net/hackerrank/assets/hackerrank_r_vendor-5bc167c024.js" rel="preload"/>
+    <link as="script" href="https://hrcdn.net/hackerrank/assets/hackerrank_r_app-87555ca29cfe72641a07.js" rel="preload"/>
+    <link as="script" href="https://hrcdn.net/hackerrank/assets/runtime-81eea53ef5d3ab5cc268.js" rel="preload"/>
+
+    
+      <link as="script" href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_community~hackerrank_r_work-23d55c606429571d12aa.js" rel="preload"/>
+    
+      <link as="script" href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_community-c541d5600091e9f67b6a.js" rel="preload"/>
+    
+      <link as="script" href="https://hrcdn.net/hackerrank/assets/hackerrank_r_community-7d11aac62d3a6b6eddf6.js" rel="preload"/>
+    
+      <link as="script" href="https://hrcdn.net/hackerrank/assets/hackerrank_r_profile-b119650cf664f4edd57f.js" rel="preload"/>
+    
+    <!-- preload scripts end -->
+
+    <!-- Prefetch old css files -->
+    <link href="https://hrcdn.net/hackerrank/assets/hackerrank-core-34a38d5e53237acdb04bd3cfa307ab90.css" rel="prefetch"/>
+    <link href="https://hrcdn.net/hackerrank/assets/hackerrank_libraries-21fce5f00a5704ab97ea6e29f618ca7f.css" rel="prefetch"/>
+
+    
+      <link href="https://hrcdn.net/hackerrank/assets/dashboard-e26d916d8859b521a068330828d9578e.css" rel="prefetch"/>
+    
+    <!-- Prefetch old css files end -->
+  
+  
+
+  <!-- Load promise polyfill for the non-believers -->
+  <script>
+    window.Promise || document.write('<script src="https://hrcdn.net/hackerrank/assets/promise-polyfill/promise.min-9b7934fab083223fac8be5ee5ae0b68d.js" type="text\/javascript"><\/script>');
+  </script>
+
+<script charset="utf-8" src="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_community~hackerrank_r_work-23d55c606429571d12aa.js"></script><script charset="utf-8" src="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_community-c541d5600091e9f67b6a.js"></script><script charset="utf-8" src="https://hrcdn.net/hackerrank/assets/hackerrank_r_community-7d11aac62d3a6b6eddf6.js"></script><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_challenge_list-12bb08b578ad7eaa2791.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_challenge_list~hackerrank_r_challenge_list_v2~hackerrank_r_interview~hackerrank~14aa502a-50a219c2b488c7a1f86a.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_challenge_list~hackerrank_r_challenge_list_v2-872d05cd86651791be2c.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_challenge_list~hackerrank_r_challenge_list_v2-872d05cd86651791be2c.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_challenge_list-12bb08b578ad7eaa2791.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_challenge_list_v2-28fee2709d829d2e171f.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_challenge_list_v2-28fee2709d829d2e171f.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_forum-e893abb65203d9ebf7ca.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_code_snippets~hackerrank_r_forum~lsp_client-79f0f3a53b46ca261d83.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_code_snippets~hackerrank_r_forum-6f536c9fd9fe39e87206.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_code_snippets~hackerrank_r_forum-0986a56df648fb66b083.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_code_snippets~hackerrank_r_forum-0986a56df648fb66b083.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_code_snippets~hackerrank_r_forum-6f536c9fd9fe39e87206.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_forum-e893abb65203d9ebf7ca.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_challenge-6ce50be32d069e37a8db.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_challenge~hackerrank_r_code_snippets~hackerrank_r_onboarding-cf25b84852ae8b03dc0f.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_challenge~hackerrank_r_leaderboard~hackerrank_r_leaderboardv2-fe33b60cdf9a08a34d22.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_challenge~hackerrank_r_onboarding-ba118bc433f1e0b0370f.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_challenge-3a96bddf0114b7509206.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_challenge~hackerrank_r_leaderboard~hackerrank_r_leaderboardv2-fe33b60cdf9a08a34d22.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_challenge~hackerrank_r_onboarding-ba118bc433f1e0b0370f.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_challenge-3a96bddf0114b7509206.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_challenge~hackerrank_r_code_snippets~hackerrank_r_onboarding-cf25b84852ae8b03dc0f.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_challenge-6ce50be32d069e37a8db.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_leaderboardv2-5d34b2a9783f942c2778.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_leaderboard~hackerrank_r_leaderboardv2-c40d2af35c7e15a77829.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_leaderboard~hackerrank_r_leaderboardv2-c40d2af35c7e15a77829.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_leaderboardv2-5d34b2a9783f942c2778.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_contest-f57750c828bfcc7f1a9c.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_contest-f57750c828bfcc7f1a9c.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_dashboard-8774da54b47ab6ab8de7.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_dashboard~hackerrank_r_work-52cf8409ac0a40c533f5.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_dashboard-8774da54b47ab6ab8de7.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_rank-36b28494046df5faab2d.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_rank-36b28494046df5faab2d.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_leaderboard-8b576bc5d2ae0cc55b40.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_leaderboard-8b576bc5d2ae0cc55b40.css" rel="prefetch"/>
+        <style>
+          html.scroll-hidden,html.scroll-hidden body{
+              overflow: hidden;
+              height:100vh;
+          }
+          html.scroll-hidden.pad-adjustment body{
+              padding-right : 10px;
+          }
+          html.scroll-hidden.pad-adjustment .fixed-elm{
+              padding-right : 10px;
+          }
+        </style>
+    <link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_company_header-f075161efb51c601d8bb.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_company_header-f075161efb51c601d8bb.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_jobs-b64bc994be0e7a27c13e.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_jobs~hackerrank_r_testinvite~hackerrank_r_testsettings-affb163167eed3042aa0.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_jobs-ea9de208ae01f988c69a.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_jobs-ea9de208ae01f988c69a.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_jobs-b64bc994be0e7a27c13e.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_profile-b119650cf664f4edd57f.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_calendar-8ce307bc8f4d1d0c2ba8.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_calendar-bfd144c52decb39e92af.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_calendar-8ce307bc8f4d1d0c2ba8.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_code_snippets-996f4c14d0f6bcc4c194.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_code_snippets-996f4c14d0f6bcc4c194.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_onboarding-f759ba4c3d3ee930e8d9.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_onboarding-f759ba4c3d3ee930e8d9.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_scoring-6ae497e6d749fd4a0625.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_scoring-6ae497e6d749fd4a0625.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_interview-662750aa627d516be496.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_interview~hackerrank_r_work-459f2aed8146e35e2862.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_interview~hackerrank_r_testinsights-1955c016ea87556139ff.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_interview-d0a322f9153701e072bf.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_interview~hackerrank_r_work-459f2aed8146e35e2862.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_interview-d0a322f9153701e072bf.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_interview-662750aa627d516be496.css" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/hackerrank_r_krackjack-ee9e55cc1ce2865f32d9.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_krackjack-235f474a58e1ce92c813.js" rel="prefetch"/><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_krackjack-235f474a58e1ce92c813.css" rel="prefetch"/><script charset="utf-8" src="https://hrcdn.net/hackerrank/assets/hackerrank_r_profile-b119650cf664f4edd57f.js"></script><link href="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_charts-565a180b74bb486b8fc0.js" rel="prefetch"/><script charset="utf-8" src="https://hrcdn.net/hackerrank/assets/vendors~hackerrank_r_charts-565a180b74bb486b8fc0.js"></script><title>Shubham Sharma - shan61916 | HackerRank</title><meta content="Shubham Sharma - shan61916 | HackerRank" id="meta-og-title" property="og:title"/><meta content="https://hrcdn.net/s3_pub/hr-avatars/3643c38b-4eb3-4a87-aecd-ee2273c1b59c/150x150.png" id="meta-og-image" property="og:image"/><meta content="https://www.hackerrank.com/shan61916" id="meta-og-url" property="og:url"/><meta content="hackerrank:hacker" id="meta-og-type" property="og:type"/></head>
+<body id="hr_v2">
+  <div class="cdn-error-view" style="display:none;">
+  <div class="error-box-wrap">
+    <div class="error-icon">
+      <svg height="80px" style="enable-background:new 0 0 367.011 367.01;" viewBox="0 0 367.011 367.01" width="80px" x="0px" xml:space="preserve" y="0px">
+        <g>
+         <g>
+          <path d="M365.221,329.641L190.943,27.788c-1.542-2.674-4.395-4.318-7.479-4.318c-3.084,0-5.938,1.645-7.48,4.318L1.157,330.584    c-1.543,2.674-1.543,5.965,0,8.639c1.542,2.674,4.395,4.318,7.48,4.318h349.65c0.028,0,0.057,0,0.086,0    c4.77,0,8.638-3.863,8.638-8.639C367.011,332.92,366.342,331.1,365.221,329.641z M23.599,326.266L183.464,49.381l159.864,276.885    H23.599z"></path>
+          <path d="M174.826,136.801v123.893c0,4.773,3.867,8.638,8.638,8.638c4.77,0,8.637-3.863,8.637-8.638V136.801    c0-4.766-3.867-8.637-8.637-8.637C178.693,128.165,174.826,132.036,174.826,136.801z"></path>
+          <path d="M183.464,279.393c-5.922,0-10.725,4.8-10.725,10.722s4.803,10.729,10.725,10.729c5.921,0,10.725-4.809,10.725-10.729    C194.189,284.193,189.386,279.393,183.464,279.393z"></path>
+         </g>
+        </g>
+      </svg>
+    </div>
+    <h2 class="error-title">Something went wrong!</h2>
+    <p class="error-message">Some error occured while loading page for you. Please try again.</p>
+    <div class="btn-wrap">
+      <a href="#" onclick="window.location.reload(true);"><button class="btn-reload">Reload</button></a>
+    </div>
+  </div>
+</div>
+<script>
+  if(typeof cdnLoaded !== 'undefined' && cdnLoaded === false){
+    document.querySelector('.cdn-error-view').style.display = 'block';
+  }
+</script>
+
+  <div id="fb-root"></div>
+  
+
+  <!-- Just a placeholder div to start loading open sans and source code loader -->
+  <div class="font-open-sans-loader"></div>
+  <div class="font-source-code-loader"></div>
+  <!-- Just a placeholder div to start loading open sans and source code loader end -->
+
+  <div id="content" onclick="void(0);"><div class="body-wrap community-page default-page show-cookie-banner"><div class="cookie-banner-wrapper"><div class="cookie-container"><div class="cookie-message">We use cookies to ensure you have the best browsing experience on our website. Please read our <a class="cookie-link" href="/privacy#cookies" target="_blank">cookie policy</a> for more information about how we use cookies.</div><div class="cookie-btn-wrapper"><button class="ui-btn ui-btn-secondary" tabindex="0"><div class="ui-content align-icon-left"><span class="ui-text">Ok</span></div></button></div></div></div><div class="toast-message loading"><span class="toast-container containment"><i class="ui-icon-loading"></i><span class="toast-text">Loading...</span></span></div><div class="theme-m new-design"><div class="page-header-wrapper theme-m-section"><nav class="community-header"><div class="container"><div class="header-nav-links theme-m-section"><ul class="nav-links"><li class="nav-link-item logo-wrap"><a class="nav_link backbone logo_mark js_logo_mark logo-link" data-analytics="NavBarLogo" data-attr1="/" href="/"><img alt="" class="logo-img-small" id="feed-intro" src="https://hrcdn.net/hackerrank/assets/brand/h_mark_sm-9c05999c62674028552f4e813728e591.svg"/></a></li><li class="nav-link-item"><a class="nav-link dashboard" data-analytics="NavBarDomains" href="/dashboard"><span>Practice</span></a></li><li class="nav-link-item"><a class="nav-link contests" data-analytics="NavBarContests" href="/contests"><span>Compete</span></a></li><li class="nav-link-item"><a class="nav-link" data-analytics="NavBarJobs" href="/jobs"><span>Jobs</span><i class="icon-circle js-jobs-notification navigation-highlight-icon hidden"></i></a></li><li class="nav-link-item"><a class="nav-link" data-analytics="NavBarLeaderboard" href="/leaderboard" id="leaderboard-nav-link"><span>Leaderboard</span></a></li></ul></div><div class="nav-buttons theme-m-section"><ul class="pull-left psR"><li class="hide-in-private-contest search-input-container input-icon main-hr-search" id="search-span"><div class="search-form new-search"><div><div class="search-query asyn-autocomplete autocomplete"><div class="ac-input-wrap cf"><input autocomplete="off" class="ac-input " placeholder="Search" value=""/></div></div><i class="ui-icon-search"></i></div></div></li></ul><ul class="pull-left nav-wrap mmL"><li class="nav-btn button-item"><button class="login pull-right btn btn-dark btn-default mmT" data-analytics="NavBarLoginIcon"> Log In </button></li><li class="nav-btn button-item"><button class="nav-signup pull-right btn btn-primary mmT" data-analytics="NavBarSignupIcon" href="/auth/signup/master"> Sign Up</button></li></ul></div></div></nav></div><div class="container"></div><div class="community-content"><article class="profile-container" itemprop="about" itemscope="" itemtype="http://schema.org/Person"><div class="plB"><div class="container"><div class="row"><div class="span4 pjT pjR"><div class="avatar avatar-profile" itemprop="image" itemscope="" itemtype="http://schema.org/ImageObject"><img itemprop="contentUrl" src="https://hrcdn.net/s3_pub/hr-avatars/3643c38b-4eb3-4a87-aecd-ee2273c1b59c/150x150.png"/></div><div class="bold mlB"><div class="d-inline mlR"><img class="small-badge-image" height="25" src="https://hrcdn.net/hackerrank/assets/badges/gold_small-90e95e4632dabf13609debebc49d8635.svg"/>0</div><div class="d-inline mlR"><img class="small-badge-image" height="25" src="https://hrcdn.net/hackerrank/assets/badges/silver_small-a1d0ba9d3781e58d48c1e89285557401.svg"/>0</div><div class="d-inline mlR"><img class="small-badge-image" height="25" src="https://hrcdn.net/hackerrank/assets/badges/bronze_small-ccb05462f608043be528d2fdaeedb62c.svg"/>2</div></div><h3 class="mlT msB hacker-email" itemprop="name">Shubham Sharma</h3><h5 class="color-alt-grey">(@<span itemprop="alternateName">shan61916</span>)</h5><div><div class="hacker-follow"><div class="mlB msT"><span class="btn-data-wrap d-flex"><button class="ui-btn ui-btn-primary d-inline-block" data-analytics="hrFollowButton" data-attr1="profile" data-attr2="Follow" tabindex="0"><div class="ui-content align-icon-left"><span class="ui-text">Follow</span></div></button><span class="btn-data js-follow-count">14</span></span></div></div></div><div><div class="mjR"><p class="fnt-wt-500 plB break-word" id="short-bio" itemprop="description">Every logic makes some logic.!
+Start sooner than planned.
+
+~coffee to code~
+           ON</p><div class="fill-light mlT mlB"><ul class="unstyled psT psB"><li class="psA plL small bold" itemprop="affiliation" itemscope="" itemtype="http://schema.org/Organization"><i class="icon-graduation-cap icon--grey"></i><span itemprop="name">Chandigarh University, Punjab</span></li><li class="psA plL small bold" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress"><i class="icon-location icon--grey"></i><span itemprop="addressCountry">India</span></li><li class="psA plL small bold" itemprop="sameAs" itemscope="" itemtype="http://schema.org/sameAs"><i class="icon--grey icon-globe"></i><a data-analytics="ProfileWebsiteLink" data-attr1="shan61916" data-attr11="false" href="http://www.facebook.com/shan61916" itemprop="url" rel="nofollow noreferrer" target="_blank">Website</a></li><li class="psA plL small bold"><i class="icon--grey"></i>cpp, cpp14, c</li></ul></div></div><div class="profile-buttons"><a class="btn send-message" data-analytics="ProfileSendMessage" data-attr1="shan61916" data-attr11="false"><i class="icon-edit"></i>Send a message</a></div></div></div><div class="span12 pull-right pjT"><h6 class="psB mlB bold boundB">Badges</h6><div class="profile-badges-view clearfix mlB" id="profile-tab-badges"><div class="hacker-badges-v2"><div class="badges-wrap"><div class="badges-list"><div class="hacker-badge"><div class="ui-badge level-gold"><div class="ui-badge-wrap"><svg class="hexagon" viewBox="0 0 91.66667 100"><g><defs><linearGradient gradientUnits="userSpaceOnUse" id="badge-gold-gradient" x1="52.5" x2="52.5" y1="2.5" y2="102.5"><stop offset="0" stop-color="#f9d641"></stop><stop offset="1" stop-color="#f8bc36"></stop></linearGradient></defs><path d="M98.28277,47.36h0c-.18459-9.382-.87983-17.797-2.0917-19.8595-1.02214-1.742-6.1721-5.43476-12.6195-9.45853L66.3804,8.23311C59.94162,4.89541,54.4699,2.5,52.49778,2.5c-2.42987,0-10.17687,3.63131-18.49789,8.18049-6.30411,3.44623-12.9328,7.41557-17.83631,10.74623-3.85037,2.61278-6.63864,4.828-7.35893,6.07393-.73574,1.27216-1.28014,4.91124-1.63613,9.67794l-.00014-.00008c-.45195,6.03951-.599,13.88935-.43933,21.10033.20233,9.11082.89243,17.18541,2.07561,19.22049C11.66541,82.42328,46.78277,102.5,52.49778,102.5c2.374,0,9.82245-3.47115,17.92388-7.87722,6.4-3.48081,13.19866-7.5418,18.23618-10.9459l-.00046-.00026c3.93694-2.6605,6.80064-4.91944,7.53385-6.17728.72907-1.2482,1.27024-4.80557,1.62881-9.48065l-.00014-.00008C98.269,62.13222,98.42408,54.47227,98.28277,47.36Z" fill="url(#badge-gold-gradient)" transform="translate(-6.66667 -2.5)"></path></g><image class="badge-icon" height="27" transform="translate(-13.5, 0)" width="27" x="50%" xlink:href="https://hrcdn.net/hackerrank/assets/badges/problem-solving-35bcd8bb5d7f950de9edcc16e2eb1350.svg" y="22"></image><text class="badge-title" font-size="10" x="50%" y="65.5">Problem Solving</text><g class="star-section" transform="translate(-21.5, 0)"><svg height="10" x="50%" y="71"><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="0"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="9"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="18"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="27"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="36"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg></svg></g></svg></div></div></div><div class="hacker-badge"><div class="ui-badge level-silver"><div class="ui-badge-wrap"><svg class="hexagon" viewBox="0 0 91.66667 100"><g><defs><linearGradient gradientUnits="userSpaceOnUse" id="badge-silver-gradient" x1="52.5" x2="52.5" y1="2.5" y2="102.5"><stop offset="0" stop-color="#cee3eb"></stop><stop offset="1" stop-color="#aec8c7"></stop></linearGradient></defs><path d="M98.28277,47.36h0c-.18459-9.382-.87983-17.797-2.0917-19.8595-1.02214-1.742-6.1721-5.43476-12.6195-9.45853L66.3804,8.23311C59.94162,4.89541,54.4699,2.5,52.49778,2.5c-2.42987,0-10.17687,3.63131-18.49789,8.18049-6.30411,3.44623-12.9328,7.41557-17.83631,10.74623-3.85037,2.61278-6.63864,4.828-7.35893,6.07393-.73574,1.27216-1.28014,4.91124-1.63613,9.67794l-.00014-.00008c-.45195,6.03951-.599,13.88935-.43933,21.10033.20233,9.11082.89243,17.18541,2.07561,19.22049C11.66541,82.42328,46.78277,102.5,52.49778,102.5c2.374,0,9.82245-3.47115,17.92388-7.87722,6.4-3.48081,13.19866-7.5418,18.23618-10.9459l-.00046-.00026c3.93694-2.6605,6.80064-4.91944,7.53385-6.17728.72907-1.2482,1.27024-4.80557,1.62881-9.48065l-.00014-.00008C98.269,62.13222,98.42408,54.47227,98.28277,47.36Z" fill="url(#badge-silver-gradient)" transform="translate(-6.66667 -2.5)"></path></g><image class="badge-icon" height="27" transform="translate(-13.5, 0)" width="27" x="50%" xlink:href="https://hrcdn.net/hackerrank/assets/badges/cpp-53dc6ad7cf254e2b9e4020599282a945.svg" y="22"></image><text class="badge-title" font-size="10" x="50%" y="65.5">CPP</text><g class="star-section" transform="translate(-12.5, 0)"><svg height="10" x="50%" y="71"><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="0"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="9"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="18"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg></svg></g></svg></div></div></div><div class="hacker-badge"><div class="ui-badge level-bronze"><div class="ui-badge-wrap"><svg class="hexagon" viewBox="0 0 91.66667 100"><g><defs><linearGradient gradientUnits="userSpaceOnUse" id="badge-bronze-gradient" x1="52.5" x2="52.5" y1="2.5" y2="102.5"><stop offset="0" stop-color="#ffc5ab"></stop><stop offset="1" stop-color="#ffa38a"></stop></linearGradient></defs><path d="M98.28277,47.36h0c-.18459-9.382-.87983-17.797-2.0917-19.8595-1.02214-1.742-6.1721-5.43476-12.6195-9.45853L66.3804,8.23311C59.94162,4.89541,54.4699,2.5,52.49778,2.5c-2.42987,0-10.17687,3.63131-18.49789,8.18049-6.30411,3.44623-12.9328,7.41557-17.83631,10.74623-3.85037,2.61278-6.63864,4.828-7.35893,6.07393-.73574,1.27216-1.28014,4.91124-1.63613,9.67794l-.00014-.00008c-.45195,6.03951-.599,13.88935-.43933,21.10033.20233,9.11082.89243,17.18541,2.07561,19.22049C11.66541,82.42328,46.78277,102.5,52.49778,102.5c2.374,0,9.82245-3.47115,17.92388-7.87722,6.4-3.48081,13.19866-7.5418,18.23618-10.9459l-.00046-.00026c3.93694-2.6605,6.80064-4.91944,7.53385-6.17728.72907-1.2482,1.27024-4.80557,1.62881-9.48065l-.00014-.00008C98.269,62.13222,98.42408,54.47227,98.28277,47.36Z" fill="url(#badge-bronze-gradient)" transform="translate(-6.66667 -2.5)"></path></g><image class="badge-icon" height="27" transform="translate(-13.5, 0)" width="27" x="50%" xlink:href="https://hrcdn.net/hackerrank/assets/badges/30-days-of-code-01adcda814a5ce13990a038928bf8992.svg" y="22"></image><text class="badge-title" font-size="10" x="50%" y="65.5">Days of Code</text><g class="star-section" transform="translate(-3.5, 0)"><svg height="10" x="50%" y="71"><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="0"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg></svg></g></svg></div></div></div><div class="hacker-badge"><div class="ui-badge level-bronze"><div class="ui-badge-wrap"><svg class="hexagon" viewBox="0 0 91.66667 100"><g><defs><linearGradient gradientUnits="userSpaceOnUse" id="badge-bronze-gradient" x1="52.5" x2="52.5" y1="2.5" y2="102.5"><stop offset="0" stop-color="#ffc5ab"></stop><stop offset="1" stop-color="#ffa38a"></stop></linearGradient></defs><path d="M98.28277,47.36h0c-.18459-9.382-.87983-17.797-2.0917-19.8595-1.02214-1.742-6.1721-5.43476-12.6195-9.45853L66.3804,8.23311C59.94162,4.89541,54.4699,2.5,52.49778,2.5c-2.42987,0-10.17687,3.63131-18.49789,8.18049-6.30411,3.44623-12.9328,7.41557-17.83631,10.74623-3.85037,2.61278-6.63864,4.828-7.35893,6.07393-.73574,1.27216-1.28014,4.91124-1.63613,9.67794l-.00014-.00008c-.45195,6.03951-.599,13.88935-.43933,21.10033.20233,9.11082.89243,17.18541,2.07561,19.22049C11.66541,82.42328,46.78277,102.5,52.49778,102.5c2.374,0,9.82245-3.47115,17.92388-7.87722,6.4-3.48081,13.19866-7.5418,18.23618-10.9459l-.00046-.00026c3.93694-2.6605,6.80064-4.91944,7.53385-6.17728.72907-1.2482,1.27024-4.80557,1.62881-9.48065l-.00014-.00008C98.269,62.13222,98.42408,54.47227,98.28277,47.36Z" fill="url(#badge-bronze-gradient)" transform="translate(-6.66667 -2.5)"></path></g><image class="badge-icon" height="27" transform="translate(-13.5, 0)" width="27" x="50%" xlink:href="https://hrcdn.net/hackerrank/assets/badges/sql-f70720079aaeaf9fb5341a3526756497.svg" y="22"></image><text class="badge-title" font-size="10" x="50%" y="65.5">Sql</text><g class="star-section" transform="translate(-3.5, 0)"><svg height="10" x="50%" y="71"><svg class="badge-star" viewBox="0 0 6.54904 6.25825" width="7" x="0"><path class="star" d="M55.51425,77.01983l-1.89417-.275-.84833-1.7175a.299.299,0,0,0-.27167-.16917.3245.3245,0,0,0-.2725.16917l-.305.61833-.5425,1.09916-.51417.075-1.38.2a.30333.30333,0,0,0-.18583.10083.33411.33411,0,0,0-.045.06833.35631.35631,0,0,0-.02417.07667.34087.34087,0,0,0-.005.04083.3038.3038,0,0,0,.02417.13417.33341.33341,0,0,0,.06667.0975l1.37167,1.33667-.2875,1.67167-.03667.21417c-.00167.01-.00167.02-.0025.02917l-.00167.0175a.26453.26453,0,0,0,.00167.04417.30489.30489,0,0,0,.44417.22917l1.69417-.89,1.69416.89a.30352.30352,0,0,0,.44084-.32L54.31175,78.874l1.37083-1.33667a.30339.30339,0,0,0-.16833-.5175" transform="translate(-49.22548 -74.85817)"></path></svg></svg></g></svg></div></div></div></div><div class="show-all"></div></div></div></div><ul class="boundB bold unstyled mlB psB" id="rating-chart"><li><h6 class="bold">Ratings</h6></li></ul><div class="msB" style=""><div class="chart"><div class="mlB" id="rating-graph-tab-container"><div class="select-box dropdown">Showing results for <div class="Select rating-track-select has-value is-clearable is-searchable Select--single"><input name="select-track" type="hidden" value="algorithms"/><div class="Select-control"><span class="Select-multi-value-wrapper" id="react-select-2--value"><div class="Select-value"><span aria-selected="true" class="Select-value-label" id="react-select-2--value-item" role="option">Algorithms</span></div><div class="Select-input" style="display: inline-block;"><input aria-activedescendant="react-select-2--value" aria-expanded="false" aria-haspopup="false" aria-owns="" role="combobox" style="box-sizing: content-box; width: 12px;" value=""/><div style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: 16px; font-family: SourceCodePro, monaco, Courier, monospace; font-weight: 400; font-style: normal; letter-spacing: normal; text-transform: none;"></div></div></span><span aria-label="Clear value" class="Select-clear-zone" title="Clear value"><span class="Select-clear">×</span></span><span class="Select-arrow-zone"><span class="Select-arrow"></span></span></div></div></div><div data-highcharts-chart="0" id="rating-graph-tab"><div class="highcharts-container " id="highcharts-my96u35-0" style="position: relative; overflow: hidden; width: 896px; height: 420px; text-align: left; line-height: normal; z-index: 0; left: 0.75px; top: 0.399994px;"><svg class="highcharts-root" height="420" style='font-family:"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;font-size:12px;' version="1.1" width="896" xmlns="http://www.w3.org/2000/svg"><desc>Created with Highcharts 5.0.7</desc><defs><clipPath id="highcharts-my96u35-1"><rect fill="none" height="390" width="861" x="0" y="0"></rect></clipPath></defs><rect class="highcharts-background" fill="none" height="420" rx="0" ry="0" width="896" x="0" y="0"></rect><rect class="highcharts-plot-background" fill="none" height="390" width="861" x="25" y="10"></rect><g class="highcharts-grid highcharts-xaxis-grid "><path class="highcharts-grid-line" d="M 90.5 10 L 90.5 400" fill="none" opacity="1"></path><path class="highcharts-grid-line" d="M 181.5 10 L 181.5 400" fill="none" opacity="1"></path><path class="highcharts-grid-line" d="M 272.5 10 L 272.5 400" fill="none" opacity="1"></path><path class="highcharts-grid-line" d="M 364.5 10 L 364.5 400" fill="none" opacity="1"></path><path class="highcharts-grid-line" d="M 455.5 10 L 455.5 400" fill="none" opacity="1"></path><path class="highcharts-grid-line" d="M 547.5 10 L 547.5 400" fill="none" opacity="1"></path><path class="highcharts-grid-line" d="M 638.5 10 L 638.5 400" fill="none" opacity="1"></path><path class="highcharts-grid-line" d="M 730.5 10 L 730.5 400" fill="none" opacity="1"></path><path class="highcharts-grid-line" d="M 821.5 10 L 821.5 400" fill="none" opacity="1"></path></g><g class="highcharts-grid highcharts-yaxis-grid "><path class="highcharts-grid-line" d="M 25 400.5 L 886 400.5" fill="none" opacity="1" stroke="#e6e6e6" stroke-width="1"></path><path class="highcharts-grid-line" d="M 25 205.5 L 886 205.5" fill="none" opacity="1" stroke="#e6e6e6" stroke-width="1"></path><path class="highcharts-grid-line" d="M 25 9.5 L 886 9.5" fill="none" opacity="1" stroke="#e6e6e6" stroke-width="1"></path></g><rect class="highcharts-plot-border" fill="none" height="390" width="861" x="25" y="10"></rect><g class="highcharts-axis highcharts-xaxis "><path class="highcharts-tick" d="M 90.5 400 L 90.5 390" fill="none" opacity="1" stroke="#ccd6eb" stroke-width="1"></path><path class="highcharts-tick" d="M 181.5 400 L 181.5 390" fill="none" opacity="1" stroke="#ccd6eb" stroke-width="1"></path><path class="highcharts-tick" d="M 272.5 400 L 272.5 390" fill="none" opacity="1" stroke="#ccd6eb" stroke-width="1"></path><path class="highcharts-tick" d="M 364.5 400 L 364.5 390" fill="none" opacity="1" stroke="#ccd6eb" stroke-width="1"></path><path class="highcharts-tick" d="M 455.5 400 L 455.5 390" fill="none" opacity="1" stroke="#ccd6eb" stroke-width="1"></path><path class="highcharts-tick" d="M 547.5 400 L 547.5 390" fill="none" opacity="1" stroke="#ccd6eb" stroke-width="1"></path><path class="highcharts-tick" d="M 638.5 400 L 638.5 390" fill="none" opacity="1" stroke="#ccd6eb" stroke-width="1"></path><path class="highcharts-tick" d="M 730.5 400 L 730.5 390" fill="none" opacity="1" stroke="#ccd6eb" stroke-width="1"></path><path class="highcharts-tick" d="M 821.5 400 L 821.5 390" fill="none" opacity="1" stroke="#ccd6eb" stroke-width="1"></path><path class="highcharts-axis-line" d="M 25 400.5 L 886 400.5" fill="none" stroke="#ccd6eb" stroke-width="1"></path></g><g class="highcharts-axis highcharts-yaxis "><text class="highcharts-axis-title" style="color:#c2c7d0;fill:#c2c7d0;" text-anchor="middle" transform="translate(0,0) rotate(270 18 205)" x="18" y="205">Score</text><path class="highcharts-axis-line" d="M 24.5 10 L 24.5 400" fill="none" stroke="#ccd6eb" stroke-width="1"></path></g><g class="highcharts-series-group"><g class="highcharts-series highcharts-series-0 highcharts-line-series highcharts-color-undefined " clip-path="url(#highcharts-my96u35-1)" transform="translate(25,10) scale(1 1)"><path class="highcharts-graph" d="M 8.4411764705882 325.65 L 190.6219982375 250.9 L 232.90691782331 185.9 L 248.97782184035 180.04999999999998 L 346.72053315708 277.55 L 611.1000771095 234.65 L 634.67951824925 191.42499999999998 L 852.55882352941 228.475" fill="none" stroke="#C2C7D0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path class="highcharts-tracker" d="M -1.5588235294118 325.65 L 8.4411764705882 325.65 L 190.6219982375 250.9 L 232.90691782331 185.9 L 248.97782184035 180.04999999999998 L 346.72053315708 277.55 L 611.1000771095 234.65 L 634.67951824925 191.42499999999998 L 852.55882352941 228.475 L 862.55882352941 228.475" fill="none" stroke="rgba(192,192,192,0.0001)" stroke-linejoin="round" stroke-width="22" visibility="visible"></path></g><g class="highcharts-markers highcharts-series-0 highcharts-line-series highcharts-color-undefined highcharts-tracker" clip-path="none" transform="translate(25,10) scale(1 1)"><path class="highcharts-point" d="M 12 326 A 4 4 0 1 1 11.999998000000167 325.99600000066664 Z" fill="rgba(0,0,0,0)" stroke="#39424e" stroke-width="2"></path><path class="highcharts-point" d="M 194 251 A 4 4 0 1 1 193.99999800000018 250.99600000066667 Z" fill="rgba(0,0,0,0)" stroke="#39424e" stroke-width="2"></path><path class="highcharts-point" d="M 236 186 A 4 4 0 1 1 235.99999800000018 185.99600000066667 Z" fill="rgba(0,0,0,0)" stroke="#39424e" stroke-width="2"></path><path class="highcharts-point" d="M 252 180 A 4 4 0 1 1 251.99999800000018 179.99600000066667 Z" fill="rgba(0,0,0,0)" stroke="#39424e" stroke-width="2"></path><path class="highcharts-point" d="M 350 278 A 4 4 0 1 1 349.9999980000002 277.99600000066664 Z" fill="rgba(0,0,0,0)" stroke="#39424e" stroke-width="2"></path><path class="highcharts-point" d="M 615 235 A 4 4 0 1 1 614.9999980000001 234.99600000066667 Z" fill="rgba(0,0,0,0)" stroke="#39424e" stroke-width="2"></path><path class="highcharts-point" d="M 638 191 A 4 4 0 1 1 637.9999980000001 190.99600000066667 Z" fill="rgba(0,0,0,0)" stroke="#39424e" stroke-width="2"></path><path class="highcharts-point" d="M 856 228 A 4 4 0 1 1 855.9999980000001 227.99600000066667 Z" fill="rgba(0,0,0,0)" stroke="#39424e" stroke-width="2"></path></g></g><g class="highcharts-axis-labels highcharts-xaxis-labels "></g><g class="highcharts-axis-labels highcharts-yaxis-labels "><text opacity="1" style="color:#c2c7d0;cursor:default;font-size:0.2em;font-weight:bold;fill:#c2c7d0;" text-anchor="end" transform="translate(0,0)" x="65" y="420"><tspan>1200</tspan></text><text opacity="1" style="color:#c2c7d0;cursor:default;font-size:0.2em;font-weight:bold;fill:#c2c7d0;" text-anchor="end" transform="translate(0,0)" x="65" y="225"><tspan>1800</tspan></text><text opacity="1" style="color:#c2c7d0;cursor:default;font-size:0.2em;font-weight:bold;fill:#c2c7d0;" text-anchor="end" transform="translate(0,0)" x="65" y="30"><tspan>2400</tspan></text></g></svg></div></div></div></div><div class="chart_info row pdB mdB"><h6 class="span4"><span class="color-alt-grey">ContestRating:</span><span class="txt-navy" id="hacker-contest-score">1697.04</span></h6><h6 class="span4"><span class="color-alt-grey">Percentile:</span><span class="color-dark" id="hacker-percentile">82.4</span></h6><h6 class="span4"><span class="color-alt-grey">Competitions:</span><span class="color-dark" id="hacker-competitions">8</span></h6></div></div><h6 class="psB mlB bold boundB">Submissions</h6><div class="submissions dashboard-submission-history mlB" style="position:relative;"><svg class="cal-heatmap-container" height="127" width="776" x="0" y="0"><svg class="graph" x="0" y="0"><svg class="graph-domain m_10 y_2017" height="111" width="74" x="0" y="0"><rect class="domain-background" height="107" width="70"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday October 1, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="0"></rect><title>Monday October 2, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday October 3, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="24"></rect><title>Wednesday October 4, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday October 5, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="48"></rect><title>Friday October 6, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="60"></rect><title>Saturday October 7, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="72"></rect><title>7 items on Sunday October 8, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="0"></rect><title>6 items on Monday October 9, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="12"></rect><title>1 item on Tuesday October 10, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="24"></rect><title>4 items on Wednesday October 11, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="36"></rect><title>8 items on Thursday October 12, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="48"></rect><title>Friday October 13, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="60"></rect><title>2 items on Saturday October 14, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="72"></rect><title>4 items on Sunday October 15, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="0"></rect><title>Monday October 16, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="12"></rect><title>Tuesday October 17, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="24"></rect><title>3 items on Wednesday October 18, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="36"></rect><title>Thursday October 19, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="48"></rect><title>Friday October 20, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="60"></rect><title>Saturday October 21, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="72"></rect><title>Sunday October 22, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="0"></rect><title>Monday October 23, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday October 24, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="24"></rect><title>Wednesday October 25, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="36"></rect><title>Thursday October 26, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="48"></rect><title>Friday October 27, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="60"></rect><title>Saturday October 28, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="72"></rect><title>Sunday October 29, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="60" y="0"></rect><title>Monday October 30, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="60" y="12"></rect><title>Tuesday October 31, 2017</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="36" y="96.5">October</text></svg><svg class="graph-domain m_11 y_2017" height="111" width="62" x="74" y="0"><rect class="domain-background" height="107" width="58"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="24"></rect><title>Wednesday November 1, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="36"></rect><title>Thursday November 2, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="48"></rect><title>Friday November 3, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="60"></rect><title>Saturday November 4, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday November 5, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="0"></rect><title>Monday November 6, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday November 7, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="24"></rect><title>Wednesday November 8, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday November 9, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="48"></rect><title>Friday November 10, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="60"></rect><title>Saturday November 11, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="72"></rect><title>Sunday November 12, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="0"></rect><title>Monday November 13, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="12"></rect><title>Tuesday November 14, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="24"></rect><title>Wednesday November 15, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="36"></rect><title>Thursday November 16, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="48"></rect><title>Friday November 17, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="60"></rect><title>Saturday November 18, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="72"></rect><title>Sunday November 19, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="0"></rect><title>Monday November 20, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="12"></rect><title>Tuesday November 21, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="24"></rect><title>Wednesday November 22, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="36"></rect><title>Thursday November 23, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="48"></rect><title>Friday November 24, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="60"></rect><title>Saturday November 25, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="72"></rect><title>Sunday November 26, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="0"></rect><title>Monday November 27, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday November 28, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="24"></rect><title>Wednesday November 29, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="36"></rect><title>Thursday November 30, 2017</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="30" y="96.5">November</text></svg><svg class="graph-domain m_12 y_2017" height="111" width="62" x="136" y="0"><rect class="domain-background" height="107" width="58"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="48"></rect><title>Friday December 1, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="60"></rect><title>Saturday December 2, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday December 3, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="0"></rect><title>Monday December 4, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday December 5, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="24"></rect><title>Wednesday December 6, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday December 7, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="48"></rect><title>8 items on Friday December 8, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="60"></rect><title>6 items on Saturday December 9, 2017</title></g><g><rect class=" graph-rect r2 q2" height="10" width="10" x="12" y="72"></rect><title>16 items on Sunday December 10, 2017</title></g><g><rect class=" graph-rect r2 q2" height="10" width="10" x="24" y="0"></rect><title>11 items on Monday December 11, 2017</title></g><g><rect class=" graph-rect r2 q2" height="10" width="10" x="24" y="12"></rect><title>12 items on Tuesday December 12, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="24"></rect><title>1 item on Wednesday December 13, 2017</title></g><g><rect class=" graph-rect r3 q3" height="10" width="10" x="24" y="36"></rect><title>21 items on Thursday December 14, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="48"></rect><title>5 items on Friday December 15, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="60"></rect><title>8 items on Saturday December 16, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="72"></rect><title>9 items on Sunday December 17, 2017</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="0"></rect><title>3 items on Monday December 18, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="12"></rect><title>Tuesday December 19, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="24"></rect><title>Wednesday December 20, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="36"></rect><title>Thursday December 21, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="48"></rect><title>Friday December 22, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="60"></rect><title>Saturday December 23, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="72"></rect><title>Sunday December 24, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="0"></rect><title>Monday December 25, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday December 26, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="24"></rect><title>Wednesday December 27, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="36"></rect><title>Thursday December 28, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="48"></rect><title>Friday December 29, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="60"></rect><title>Saturday December 30, 2017</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="72"></rect><title>Sunday December 31, 2017</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="30" y="96.5">December</text></svg><svg class="graph-domain m_1 y_2018" height="111" width="62" x="198" y="0"><rect class="domain-background" height="107" width="58"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="0"></rect><title>Monday January 1, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="12"></rect><title>Tuesday January 2, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="24"></rect><title>Wednesday January 3, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="36"></rect><title>Thursday January 4, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="48"></rect><title>Friday January 5, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="60"></rect><title>Saturday January 6, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday January 7, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="0"></rect><title>Monday January 8, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday January 9, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="24"></rect><title>Wednesday January 10, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday January 11, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="48"></rect><title>Friday January 12, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="60"></rect><title>Saturday January 13, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="72"></rect><title>Sunday January 14, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="0"></rect><title>Monday January 15, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="12"></rect><title>Tuesday January 16, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="24"></rect><title>Wednesday January 17, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="36"></rect><title>Thursday January 18, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="48"></rect><title>1 item on Friday January 19, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="60"></rect><title>5 items on Saturday January 20, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="72"></rect><title>Sunday January 21, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="0"></rect><title>Monday January 22, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="12"></rect><title>Tuesday January 23, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="24"></rect><title>Wednesday January 24, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="36"></rect><title>Thursday January 25, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="48"></rect><title>Friday January 26, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="60"></rect><title>Saturday January 27, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="72"></rect><title>Sunday January 28, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="0"></rect><title>Monday January 29, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday January 30, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="24"></rect><title>Wednesday January 31, 2018</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="30" y="96.5">January</text></svg><svg class="graph-domain m_2 y_2018" height="111" width="62" x="260" y="0"><rect class="domain-background" height="107" width="58"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="36"></rect><title>Thursday February 1, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="48"></rect><title>Friday February 2, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="60"></rect><title>Saturday February 3, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="0" y="72"></rect><title>1 item on Sunday February 4, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="0"></rect><title>Monday February 5, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday February 6, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="24"></rect><title>9 items on Wednesday February 7, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="36"></rect><title>3 items on Thursday February 8, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="48"></rect><title>Friday February 9, 2018</title></g><g><rect class=" graph-rect r2 q2" height="10" width="10" x="12" y="60"></rect><title>13 items on Saturday February 10, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="72"></rect><title>3 items on Sunday February 11, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="0"></rect><title>5 items on Monday February 12, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="12"></rect><title>3 items on Tuesday February 13, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="24"></rect><title>Wednesday February 14, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="36"></rect><title>2 items on Thursday February 15, 2018</title></g><g><rect class=" graph-rect r2 q2" height="10" width="10" x="24" y="48"></rect><title>20 items on Friday February 16, 2018</title></g><g><rect class=" graph-rect r2 q2" height="10" width="10" x="24" y="60"></rect><title>11 items on Saturday February 17, 2018</title></g><g><rect class=" graph-rect r2 q2" height="10" width="10" x="24" y="72"></rect><title>12 items on Sunday February 18, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="0"></rect><title>1 item on Monday February 19, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="12"></rect><title>Tuesday February 20, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="24"></rect><title>Wednesday February 21, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="36"></rect><title>3 items on Thursday February 22, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="48"></rect><title>8 items on Friday February 23, 2018</title></g><g><rect class=" graph-rect r2 q2" height="10" width="10" x="36" y="60"></rect><title>19 items on Saturday February 24, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="72"></rect><title>8 items on Sunday February 25, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="0"></rect><title>Monday February 26, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday February 27, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="48" y="24"></rect><title>3 items on Wednesday February 28, 2018</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="30" y="96.5">February</text></svg><svg class="graph-domain m_3 y_2018" height="111" width="62" x="322" y="0"><rect class="domain-background" height="107" width="58"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect r1 q1" height="10" width="10" x="0" y="36"></rect><title>1 item on Thursday March 1, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="0" y="48"></rect><title>8 items on Friday March 2, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="0" y="60"></rect><title>5 items on Saturday March 3, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday March 4, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="0"></rect><title>1 item on Monday March 5, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday March 6, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="24"></rect><title>Wednesday March 7, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday March 8, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="48"></rect><title>Friday March 9, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="60"></rect><title>Saturday March 10, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="72"></rect><title>Sunday March 11, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="0"></rect><title>Monday March 12, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="12"></rect><title>Tuesday March 13, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="24"></rect><title>Wednesday March 14, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="36"></rect><title>Thursday March 15, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="48"></rect><title>Friday March 16, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="60"></rect><title>3 items on Saturday March 17, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="72"></rect><title>Sunday March 18, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="0"></rect><title>Monday March 19, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="12"></rect><title>Tuesday March 20, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="24"></rect><title>Wednesday March 21, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="36"></rect><title>Thursday March 22, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="48"></rect><title>1 item on Friday March 23, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="60"></rect><title>Saturday March 24, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="72"></rect><title>1 item on Sunday March 25, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="48" y="0"></rect><title>6 items on Monday March 26, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday March 27, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="24"></rect><title>Wednesday March 28, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="36"></rect><title>Thursday March 29, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="48"></rect><title>Friday March 30, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="60"></rect><title>Saturday March 31, 2018</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="30" y="96.5">March</text></svg><svg class="graph-domain m_4 y_2018" height="111" width="74" x="384" y="0"><rect class="domain-background" height="107" width="70"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday April 1, 2018</title></g><g><rect class=" graph-rect r2 q2" height="10" width="10" x="12" y="0"></rect><title>12 items on Monday April 2, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="12"></rect><title>5 items on Tuesday April 3, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="24"></rect><title>1 item on Wednesday April 4, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday April 5, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="48"></rect><title>Friday April 6, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="60"></rect><title>Saturday April 7, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="72"></rect><title>Sunday April 8, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="0"></rect><title>Monday April 9, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="12"></rect><title>Tuesday April 10, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="24"></rect><title>Wednesday April 11, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="36"></rect><title>Thursday April 12, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="48"></rect><title>1 item on Friday April 13, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="24" y="60"></rect><title>1 item on Saturday April 14, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="72"></rect><title>Sunday April 15, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="0"></rect><title>Monday April 16, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="12"></rect><title>Tuesday April 17, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="24"></rect><title>Wednesday April 18, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="36"></rect><title>Thursday April 19, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="48"></rect><title>Friday April 20, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="60"></rect><title>Saturday April 21, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="72"></rect><title>Sunday April 22, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="0"></rect><title>Monday April 23, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday April 24, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="48" y="24"></rect><title>1 item on Wednesday April 25, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="36"></rect><title>Thursday April 26, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="48"></rect><title>Friday April 27, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="60"></rect><title>Saturday April 28, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="72"></rect><title>Sunday April 29, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="60" y="0"></rect><title>Monday April 30, 2018</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="36" y="96.5">April</text></svg><svg class="graph-domain m_5 y_2018" height="111" width="62" x="458" y="0"><rect class="domain-background" height="107" width="58"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="12"></rect><title>Tuesday May 1, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="24"></rect><title>Wednesday May 2, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="36"></rect><title>Thursday May 3, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="48"></rect><title>Friday May 4, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="60"></rect><title>Saturday May 5, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday May 6, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="0"></rect><title>Monday May 7, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday May 8, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="24"></rect><title>Wednesday May 9, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday May 10, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="48"></rect><title>2 items on Friday May 11, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="60"></rect><title>Saturday May 12, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="72"></rect><title>Sunday May 13, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="0"></rect><title>Monday May 14, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="12"></rect><title>Tuesday May 15, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="24"></rect><title>Wednesday May 16, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="36"></rect><title>Thursday May 17, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="48"></rect><title>Friday May 18, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="60"></rect><title>Saturday May 19, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="72"></rect><title>Sunday May 20, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="0"></rect><title>Monday May 21, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="12"></rect><title>3 items on Tuesday May 22, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="24"></rect><title>7 items on Wednesday May 23, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="36"></rect><title>Thursday May 24, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="48"></rect><title>Friday May 25, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="60"></rect><title>Saturday May 26, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="72"></rect><title>Sunday May 27, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="0"></rect><title>Monday May 28, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday May 29, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="24"></rect><title>Wednesday May 30, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="48" y="36"></rect><title>1 item on Thursday May 31, 2018</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="30" y="96.5">May</text></svg><svg class="graph-domain m_6 y_2018" height="111" width="62" x="520" y="0"><rect class="domain-background" height="107" width="58"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="48"></rect><title>Friday June 1, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="60"></rect><title>Saturday June 2, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday June 3, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="0"></rect><title>Monday June 4, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday June 5, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="24"></rect><title>Wednesday June 6, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday June 7, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="48"></rect><title>2 items on Friday June 8, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="60"></rect><title>Saturday June 9, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="72"></rect><title>Sunday June 10, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="0"></rect><title>Monday June 11, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="12"></rect><title>Tuesday June 12, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="24"></rect><title>Wednesday June 13, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="36"></rect><title>Thursday June 14, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="48"></rect><title>Friday June 15, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="60"></rect><title>Saturday June 16, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="72"></rect><title>Sunday June 17, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="0"></rect><title>1 item on Monday June 18, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="12"></rect><title>7 items on Tuesday June 19, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="36" y="24"></rect><title>1 item on Wednesday June 20, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="36"></rect><title>Thursday June 21, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="48"></rect><title>Friday June 22, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="60"></rect><title>Saturday June 23, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="72"></rect><title>Sunday June 24, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="0"></rect><title>Monday June 25, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday June 26, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="24"></rect><title>Wednesday June 27, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="36"></rect><title>Thursday June 28, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="48"></rect><title>Friday June 29, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="60"></rect><title>Saturday June 30, 2018</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="30" y="96.5">June</text></svg><svg class="graph-domain m_7 y_2018" height="111" width="74" x="582" y="0"><rect class="domain-background" height="107" width="70"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday July 1, 2018</title></g><g><rect class=" graph-rect r2 q2" height="10" width="10" x="12" y="0"></rect><title>11 items on Monday July 2, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday July 3, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="24"></rect><title>Wednesday July 4, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday July 5, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="48"></rect><title>Friday July 6, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="60"></rect><title>Saturday July 7, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="72"></rect><title>Sunday July 8, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="0"></rect><title>Monday July 9, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="12"></rect><title>Tuesday July 10, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="24"></rect><title>Wednesday July 11, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="36"></rect><title>Thursday July 12, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="48"></rect><title>Friday July 13, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="60"></rect><title>Saturday July 14, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="72"></rect><title>Sunday July 15, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="0"></rect><title>Monday July 16, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="12"></rect><title>Tuesday July 17, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="24"></rect><title>Wednesday July 18, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="36"></rect><title>Thursday July 19, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="48"></rect><title>Friday July 20, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="60"></rect><title>Saturday July 21, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="72"></rect><title>Sunday July 22, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="0"></rect><title>Monday July 23, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday July 24, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="24"></rect><title>Wednesday July 25, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="36"></rect><title>Thursday July 26, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="48"></rect><title>Friday July 27, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="60"></rect><title>Saturday July 28, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="72"></rect><title>Sunday July 29, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="60" y="0"></rect><title>Monday July 30, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="60" y="12"></rect><title>Tuesday July 31, 2018</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="36" y="96.5">July</text></svg><svg class="graph-domain m_8 y_2018" height="111" width="62" x="656" y="0"><rect class="domain-background" height="107" width="58"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="24"></rect><title>Wednesday August 1, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="36"></rect><title>Thursday August 2, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="48"></rect><title>Friday August 3, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="60"></rect><title>Saturday August 4, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday August 5, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="0"></rect><title>Monday August 6, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday August 7, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="24"></rect><title>Wednesday August 8, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday August 9, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="48"></rect><title>Friday August 10, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="60"></rect><title>Saturday August 11, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="72"></rect><title>Sunday August 12, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="0"></rect><title>Monday August 13, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="12"></rect><title>Tuesday August 14, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="24"></rect><title>Wednesday August 15, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="36"></rect><title>Thursday August 16, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="48"></rect><title>Friday August 17, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="60"></rect><title>Saturday August 18, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="72"></rect><title>Sunday August 19, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="0"></rect><title>Monday August 20, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="12"></rect><title>Tuesday August 21, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="24"></rect><title>Wednesday August 22, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="36"></rect><title>Thursday August 23, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="48"></rect><title>Friday August 24, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="60"></rect><title>Saturday August 25, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="72"></rect><title>Sunday August 26, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="0"></rect><title>Monday August 27, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="12"></rect><title>Tuesday August 28, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="24"></rect><title>Wednesday August 29, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="36"></rect><title>Thursday August 30, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="48" y="48"></rect><title>Friday August 31, 2018</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="30" y="96.5">August</text></svg><svg class="graph-domain m_9 y_2018" height="111" width="62" x="718" y="0"><rect class="domain-background" height="107" width="58"></rect><svg class="graph-subdomain-group" x="0" y="0"><g><rect class=" graph-rect" height="10" width="10" x="0" y="60"></rect><title>Saturday September 1, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="0" y="72"></rect><title>Sunday September 2, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="0"></rect><title>Monday September 3, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="12"></rect><title>Tuesday September 4, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="24"></rect><title>Wednesday September 5, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="36"></rect><title>Thursday September 6, 2018</title></g><g><rect class=" graph-rect r1 q1" height="10" width="10" x="12" y="48"></rect><title>1 item on Friday September 7, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="60"></rect><title>Saturday September 8, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="12" y="72"></rect><title>Sunday September 9, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="0"></rect><title>Monday September 10, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="12"></rect><title>Tuesday September 11, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="24"></rect><title>Wednesday September 12, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="36"></rect><title>Thursday September 13, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="48"></rect><title>Friday September 14, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="60"></rect><title>Saturday September 15, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="24" y="72"></rect><title>Sunday September 16, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="0"></rect><title>Monday September 17, 2018</title></g><g><rect class=" graph-rect" height="10" width="10" x="36" y="12"></rect><title>Tuesday September 18, 2018</title></g><g><rect class=" graph-rect now" height="10" width="10" x="36" y="24"></rect><title>Wednesday September 19, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="36" y="36"></rect><title>Thursday September 20, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="36" y="48"></rect><title>Friday September 21, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="36" y="60"></rect><title>Saturday September 22, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="36" y="72"></rect><title>Sunday September 23, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="48" y="0"></rect><title>Monday September 24, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="48" y="12"></rect><title>Tuesday September 25, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="48" y="24"></rect><title>Wednesday September 26, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="48" y="36"></rect><title>Thursday September 27, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="48" y="48"></rect><title>Friday September 28, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="48" y="60"></rect><title>Saturday September 29, 2018</title></g><g><rect class=" graph-rect future" height="10" width="10" x="48" y="72"></rect><title>Sunday September 30, 2018</title></g></svg><text class="graph-label" dominant-baseline="middle" text-anchor="middle" x="30" y="96.5">September</text></svg></svg><svg class="graph-legend" height="10" width="58" x="0" y="117"><g transform=""><rect class="r1 q1" fill="" fill-opacity="1" height="10" width="10" x="0"><title>less than 10 items</title></rect><rect class="r2 q2" fill="" fill-opacity="1" height="10" width="10" x="12"><title>between 10 and 20 items</title></rect><rect class="r3 q3" fill="" fill-opacity="1" height="10" width="10" x="24"><title>between 20 and 30 items</title></rect><rect class="r4 q4" fill="" fill-opacity="1" height="10" width="10" x="36"><title>between 30 and 40 items</title></rect><rect class="r5 q5" fill="" fill-opacity="1" height="10" width="10" x="48"><title>more than 40 items</title></rect></g></svg></svg><div class="ch-tooltip"></div></div><div class="profile-challenges-view mlB" id="profile-tab-challenges"><div><div class="msB bold clearfix"><div class="msB bold clearfix"><div class="pull-left psT"><a class="backbone prob_link" data-analytics="ProfileChallengesLink" data-attr1="shan61916" data-attr11="false" data-attr2="exceeding-speed-limit" href="/contests/university-codesprint-5/challenges/exceeding-speed-limit">Exceeding the Speed Limit</a><span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago" title="2018-09-07T16:07:32.000+00:00">11 days ago</span></span></span></div></div></div><div class="msB bold clearfix"><div class="msB bold clearfix"><div class="pull-left psT"><a class="backbone prob_link" data-analytics="ProfileChallengesLink" data-attr1="shan61916" data-attr11="false" data-attr2="minimize-the-sum" href="/contests/101hack55/challenges/minimize-the-sum">Minimize the Sum</a><span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago" title="2018-07-02T17:14:05.000+00:00">3 months ago</span></span></span></div></div></div><div class="msB bold clearfix"><div class="msB bold clearfix"><div class="pull-left psT"><a class="backbone prob_link" data-analytics="ProfileChallengesLink" data-attr1="shan61916" data-attr11="false" data-attr2="swapping-in-an-array" href="/contests/101hack55/challenges/swapping-in-an-array">Swapping in an Array</a><span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago" title="2018-07-02T16:56:01.000+00:00">3 months ago</span></span></span></div></div></div><div class="msB bold clearfix"><div class="msB bold clearfix"><div class="pull-left psT"><a class="backbone prob_link" data-analytics="ProfileChallengesLink" data-attr1="shan61916" data-attr11="false" data-attr2="minute-to-win-it" href="/contests/w38/challenges/minute-to-win-it">Minute to Win It</a><span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago" title="2018-06-19T08:32:56.000+00:00">3 months ago</span></span></span></div></div></div><div class="msB bold clearfix"><div class="msB bold clearfix"><div class="pull-left psT"><a class="backbone prob_link" data-analytics="ProfileChallengesLink" data-attr1="shan61916" data-attr11="false" data-attr2="summing-the-n-series" href="/challenges/summing-the-n-series">Summing the N series </a><span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago" title="2018-06-19T05:32:22.000+00:00">3 months ago</span></span></span></div></div></div><div class="msB more-challenges-list text-center" style="cursor: pointer;"><a class="bold btn btn-line" data-analytics="ProfileChallengesLoadMore" data-attr1="shan61916" data-attr11="false">Load more...</a></div></div></div><h6 class="psB mlB bold boundB">Contest History</h6><div><div class="bold mlB"><div class="d-inline mlR"><img class="small-badge-image" height="25" src="https://hrcdn.net/hackerrank/assets/badges/gold_small-90e95e4632dabf13609debebc49d8635.svg"/>0</div><div class="d-inline mlR"><img class="small-badge-image" height="25" src="https://hrcdn.net/hackerrank/assets/badges/silver_small-a1d0ba9d3781e58d48c1e89285557401.svg"/>0</div><div class="d-inline mlR"><img class="small-badge-image" height="25" src="https://hrcdn.net/hackerrank/assets/badges/bronze_small-ccb05462f608043be528d2fdaeedb62c.svg"/>2</div></div><div class="profile-contests-view mlB" id="profile-tab-contests"><div><div><p class="msB bold small color-alt-grey">September, 2018</p><div class="msB bold row"><a class="span5 mmT" data-analytics="ProfileContestsLink" data-attr1="shan61916" data-attr11="false" data-attr2="university-codesprint-5" href="/contests/university-codesprint-5">University Codesprint 5</a><span class="xsmall color-alt-grey mmL span3 mmT">1983/ 4384 participants</span><span class="span1">​</span><span class="span3 bold mmT"><a data-analytics="ContestResultsSocial" data-attr1="university-codesprint-5" data-attr2="shan61916" data-attr3="profile" href="/results/university-codesprint-5/shan61916">View Results</a></span></div></div><div><p class="msB bold small color-alt-grey">July, 2018</p><div class="msB bold row"><a class="span5 mmT" data-analytics="ProfileContestsLink" data-attr1="shan61916" data-attr11="false" data-attr2="101hack55" href="/contests/101hack55">101 Hack 55</a><span class="xsmall color-alt-grey mmL span3 mmT">395/ 1693 participants</span><span class="span1">​<img height="25" src="https://hrcdn.net/social_badges/bronze_small.svg" style="position: relative; left: 10px; top: 5px;"/></span><span class="span3 bold mmT"><a data-analytics="ContestResultsSocial" data-attr1="101hack55" data-attr2="shan61916" data-attr3="profile" href="/results/101hack55/shan61916">View Results</a></span></div></div><div><p class="msB bold small color-alt-grey">June, 2018</p><div class="msB bold row"><a class="span5 mmT" data-analytics="ProfileContestsLink" data-attr1="shan61916" data-attr11="false" data-attr2="w38" href="/contests/w38">Week of Code 38</a><span class="xsmall color-alt-grey mmL span3 mmT">2006/ 6731 participants</span><span class="span1">​</span><span class="span3 bold mmT"><a data-analytics="ContestResultsSocial" data-attr1="w38" data-attr2="shan61916" data-attr3="profile" href="/results/w38/shan61916">View Results</a></span></div></div><div><p class="msB bold small color-alt-grey">April, 2018</p><div class="msB bold row"><a class="span5 mmT" data-analytics="ProfileContestsLink" data-attr1="shan61916" data-attr11="false" data-attr2="hourrank-27" href="/contests/hourrank-27">HourRank 27</a><span class="xsmall color-alt-grey mmL span3 mmT">1465/ 1709 participants</span><span class="span1">​</span><span class="span3 bold mmT"><a data-analytics="ContestResultsSocial" data-attr1="hourrank-27" data-attr2="shan61916" data-attr3="profile" href="/results/hourrank-27/shan61916">View Results</a></span></div></div><div><p class="msB bold small color-alt-grey">March, 2018</p><div class="msB bold row"><a class="span5 mmT" data-analytics="ProfileContestsLink" data-attr1="shan61916" data-attr11="false" data-attr2="101hack53" href="/contests/101hack53">101 Hack 53</a><span class="xsmall color-alt-grey mmL span3 mmT">525/ 1821 participants</span><span class="span1">​</span><span class="span3 bold mmT"><a data-analytics="ContestResultsSocial" data-attr1="101hack53" data-attr2="shan61916" data-attr3="profile" href="/results/101hack53/shan61916">View Results</a></span></div></div><div class="msB more-contest-list text-center" style="cursor: pointer;"><a class="bold btn btn-line" data-analytics="ProfileContestsLoadMore" data-attr1="shan61916" data-attr11="false">Load more...</a></div></div></div></div><h6 class="psB mlB bold boundB">Discussions</h6><div class="profile-discussions-view mlB" id="profile-tab-discussions"><div><div class="msB bold clearfix"><div class="msB bold clearfix"><div class="pull-left psT"><a class="backbone prob_link" data-analytics="ProfileDiscussionsLink" data-attr1="shan61916" data-attr11="false" data-attr2="cubes-and-cylinders" data-attr3="university-codesprint-4" href="/contests/university-codesprint-4/challenges/cubes-and-cylinders/forum/comments/419064">Started new discussion in Cubes and Cylinders</a><span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago" title="2018-02-24T10:59:56.000Z">7 months ago</span></span></span></div></div></div><div class="msB bold clearfix"><div class="msB bold clearfix"><div class="pull-left psT"><a class="backbone prob_link" data-analytics="ProfileDiscussionsLink" data-attr1="shan61916" data-attr11="false" data-attr2="cubes-and-cylinders" data-attr3="university-codesprint-4" href="/contests/university-codesprint-4/challenges/cubes-and-cylinders/forum/comments/418587">Started new discussion in Cubes and Cylinders</a><span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago" title="2018-02-23T16:33:25.000Z">7 months ago</span></span></span></div></div></div><div class="msB bold clearfix"><div class="msB bold clearfix"><div class="pull-left psT"><a class="backbone prob_link" data-analytics="ProfileDiscussionsLink" data-attr1="shan61916" data-attr11="false" data-attr2="height-and-total-height-of-a-bst" data-attr3="rookierank-4" href="/contests/rookierank-4/challenges/height-and-total-height-of-a-bst/forum/comments/416528">Started new discussion in Height and Total Height of a BST</a><span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago" title="2018-02-17T19:50:05.000Z">7 months ago</span></span></span></div></div></div><div class="msB bold clearfix"><div class="msB bold clearfix"><div class="pull-left psT"><a class="backbone prob_link" data-analytics="ProfileDiscussionsLink" data-attr1="shan61916" data-attr11="false" data-attr2="server-room-safety" data-attr3="rookierank-4" href="/contests/rookierank-4/challenges/server-room-safety/forum/comments/416453">Replied in Server Room Safety</a><span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago" title="2018-02-17T17:32:57.000Z">7 months ago</span></span></span></div></div></div><div class="msB bold clearfix"><div class="msB bold clearfix"><div class="pull-left psT"><a class="backbone prob_link" data-analytics="ProfileDiscussionsLink" data-attr1="shan61916" data-attr11="false" data-attr2="server-room-safety" data-attr3="rookierank-4" href="/contests/rookierank-4/challenges/server-room-safety/forum/comments/416306">Replied in Server Room Safety</a><span class="color-alt-grey mmL"><span class="xsmall"><span class="mmL mmR">•</span> <span class="time-ago" title="2018-02-17T12:41:59.000Z">7 months ago</span></span></span></div></div></div></div></div></div></div></div></div></article></div><footer class="community-footer"><ul class="footer-links"><li class="link-item"><a class="footer-link calendar" data-analytics="FooterLinkCalendar" href="/calendar" target="_blank">Contest Calendar</a></li><li class="link-item"><a class="footer-link blog" data-analytics="FooterLinkBlog" href="//blog.hackerrank.com" target="_blank">Blog</a></li><li class="link-item"><a class="footer-link scoring" data-analytics="FooterLinkScoring" href="/scoring" target="_blank">Scoring</a></li><li class="link-item"><a class="footer-link environment" data-analytics="FooterLinkEnvironment" href="/environment" target="_blank">Environment</a></li><li class="link-item"><a class="footer-link faq" data-analytics="FooterLinkFAQ" href="/faq" target="_blank">FAQ</a></li><li class="link-item"><a class="footer-link" data-analytics="FooterLinkAboutUs" href="/aboutus" target="_blank">About Us</a></li><li class="link-item"><a class="footer-link" data-analytics="FooterLinkSupport" href="https://help.hackerrank.com/hc/en-us" target="_blank">Support</a></li><li class="link-item"><a class="footer-link" data-analytics="FooterLinkCareers" href="/careers" target="_blank">Careers</a></li><li class="link-item"><a class="footer-link" data-analytics="FooterLinkTermsOfService" href="/terms-of-service" target="_blank">Terms Of Service</a></li><li class="link-item"><a class="footer-link" data-analytics="FooterLinkPrivacyPolicy" href="/privacy" target="_blank">Privacy Policy</a></li><li class="link-item"><a class="footer-link featureRequestButton" data-analytics="FooterLinkFeatureRequest" href="/support/feature" target="_blank">Request a Feature</a></li></ul></footer></div></div></div><!--Required to handle event bubbling of click in ios safari -->
+
+  <script>
+    //HR namespace
+    var HR = {};
+    HR.development = false;
+    HR.assetPath = 'https://hrcdn.net/hackerrank/assets/';
+    HR.pageLoadTime = Date.now();
+    HR.productNamespace = 'hackerrank';
+    HR.production = true;
+    HR.devServer = false;
+    HR.isIsomorphic = true;
+    HR.loadedWithOldCss = true;
+    HR.pusher = '{"key":"a280047e3b323ccb1b65","cluster":"mt1"}';
+  </script>
+
+  <!-- Vendor scripts -->
+  
+    <script src="https://hrcdn.net/hackerrank/assets/hackerrank_r_vendor-5bc167c024.js"></script>
+  
+
+  
+  <script src="https://hrcdn.net/hackerrank/assets/runtime-81eea53ef5d3ab5cc268.js"></script>
+  <script src="https://hrcdn.net/hackerrank/assets/hackerrank_r_app-87555ca29cfe72641a07.js"></script>
+  
+<script>
+  var getUser = (function() {
+    var userData;
+    $(window).on('initializeNewUser', function(e, user) {
+      userData = user;
+    });
+    try{
+      if (typeof userData === 'undefined') {
+        userData = JSON.parse(decodeURI($('#initialUserData').html()));
+        $('#initialUserData').remove();
+      }
+    } catch(e){
+      userData = {};
+      console.log('No initial User data found');
+    }
+    return function() {
+      return userData;
+    }
+  })();
+</script>
+
+<!-- setting up sentry -->
+
+  <script async="" crossorigin="anonymous" id="raven" src="https://cdn.ravenjs.com/3.22.1/raven.min.js"></script>
+  <script>
+    (function(window, queue, loaded, script, user) {
+
+        var setupRaven = function(user) {
+          var userContext = {};
+          if (user && !!user.id) {
+            userContext.handle = user.id;
+          }
+          var extraContext = {
+            cdnUrl: Cookies.get("cdn_url")
+          }
+          if (Cookies) {
+            if (HR.productNamespace === 'hackerrank') {
+              extraContext.mixpanel_token = Cookies.get('hackerrank_mixpanel_token')
+            } else if (HR.productNamespace === 'hackerrankx') {
+              extraContext.mixpanel_token = Cookies.get('hackerrankx_mixpanel_token')
+            }
+          }
+          if(typeof Raven !== 'undefined') {
+            Raven.setUserContext(userContext);
+            Raven.setExtraContext(extraContext);
+          }
+        }
+        $(window).on('initializeNewUser', function(e, user) {
+          setupRaven(user);
+        });
+
+        window.onerror = function e(message, file, lineNo, columnNo, error) {
+            if (loaded) return;
+            queue.push([message, file, lineNo, columnNo, error]);
+        };
+
+        window.onunhandledrejection = function e(error) {
+            if (loaded) return;
+            queue.push([
+                error.reason,
+            ]);
+        };
+
+        script.onreadystatechange = script.onload = function() {
+            if (loaded) return;
+            loaded = true;
+
+            Raven.config('https://6b2d52b23d5a4dd4bc44330335327c04@sentry.io/234162', {
+                release: "87529089647c7fd6bfde5c649a645c8b5dd6975c",
+                ignoreUrls: [/cdn\.userty\.com/]
+            }).install();
+
+            setupRaven(user);
+
+            window.onunhandledrejection = function e(error) {
+                Raven.captureException(error.reason, {
+                    extra: {
+                        type: error.type,
+                    },
+                });
+            };
+
+            queue.forEach(function(error) {
+                Raven.captureException(error[4] || error[0], {
+                    extra: {
+                        file: error[1],
+                        line: error[2],
+                        col: error[3],
+                    },
+                });
+            });
+        };
+    }(window, [], false, document.getElementById('raven'), getUser()));
+ </script>
+
+
+
+
+<!-- google analytics tracking -->
+<script>
+  var _gaq = _gaq || [];
+  
+  _gaq.push(['candidate_company._setAccount', 'UA-45092266-1']);
+  _gaq.push(['candidate_company._trackPageview']);
+  _gaq.push(['candidate_company._gat._anonymizeIp']);
+  _gaq.push(['_setCampSourceKey', 'utm_source']);
+  _gaq.push(['_setCampMediumKey', 'utm_medium']);
+  _gaq.push(['_setCampContentKey', 'utm_keyword']);
+  _gaq.push(['_setCampTermKey', 'utm_keyword']);
+  _gaq.push(['_setCampNameKey', 'utm_campaign']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  
+</script>
+<!-- Pending candidate site custom GA code -->
+<!-- google analytics tracking end-->
+
+<!-- mixpanel tracking -->
+<script type="text/javascript">
+  
+    (function(e,a){if(!a.__SV){var b=window;try{var c,l,i,j=b.location,g=j.hash;c=function(a,b){return(l=a.match(RegExp(b+"=([^&]*)")))?l[1]:null};g&&c(g,"state")&&(i=JSON.parse(decodeURIComponent(c(g,"state"))),"mpeditor"===i.action&&(b.sessionStorage.setItem("_mpcehash",g),history.replaceState(i.desiredHash||"",e.title,j.pathname+j.search)))}catch(m){}var k,h;window.mixpanel=a;a._i=[];a.init=function(b,c,f){function e(b,a){var c=a.split(".");2==c.length&&(b=b[c[0]],a=c[1]);b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,
+0)))}}var d=a;"undefined"!==typeof f?d=a[f]=[]:f="mixpanel";d.people=d.people||[];d.toString=function(b){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);b||(a+=" (stub)");return a};d.people.toString=function(){return d.toString(1)+".people (stub)"};k="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config reset people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(h=0;h<k.length;h++)e(d,k[h]);a._i.push([b,c,f])};a.__SV=1.2;b=e.createElement("script");b.type="text/javascript";b.async=!0;b.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";c=e.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}})(document,window.mixpanel||[]);
+    mixpanel.init("bcb75af88bccc92724ac5fd79271e1ff");
+
+    
+      
+        mixpanel.init("86cf4681911d3ff600208fdc823c5ff5", {}, "jobs_test");
+      
+      mixpanel.identify(Cookies.get("hackerrank_mixpanel_token"));
+    
+  
+</script>
+<!-- mixpanel tracking end-->
+
+<!-- auryc tracking start -->
+<script type="text/javascript">
+  
+</script>
+<!-- auryc tracking end -->
+
+<!-- Marketo to be added later -->
+
+
+
+<!-- Bizible -->
+
+<!-- HR metrics init -->
+<script type="text/javascript">
+
+  (function() {
+    hr_metrics.init({
+      product: 'hackerrank',
+      use_cookie: true,
+      uid_cookie_key: 'hackerrank_mixpanel_token',
+      uid_token_cookie_key: 'metrics_user_identifier',
+      session_cookie_key: 'session_id',
+      metrics_endpoint:  'https://metrics.hackerrank.com/metrics' 
+    });
+  })();
+
+  (function(h) {
+    window.hr_metrics = h;
+    if (!h.loaded) {
+      var a = ['track', 'batch_track', 'app_track', 'externalService', 'init', 'batch_track_record', 'track_dwell_time', 'set_navigation_data'];
+      for (var i = 0; i < a.length; i++) {
+        if (!h[a[i]]) {h[a[i]] = function() {};}
+      }
+    }
+  })(window.hr_metrics || {});
+
+
+
+</script>
+
+<!-- hrutm_params -->
+
+<!-- HR metrics extension pack -->
+<script type="text/javascript">
+
+  
+    if (('performance' in window) && ('timing' in window.performance)) {
+      $(window).on("load", function() {
+        setTimeout(function(){
+          var timing = window.performance.timing;
+          var obj = {
+            referring_url: window.location.pathname,
+            fullLoadTime: timing.loadEventEnd - timing.navigationStart,
+            // Total time from req start to load
+            loadTime: timing.loadEventEnd - timing.fetchStart,
+            // Time spent constructing the DOM tree
+            domReadyTime: timing.domComplete - timing.domInteractive,
+            // Time consumed preparing the new page
+            readyStart: timing.fetchStart - timing.navigationStart,
+            // Time spent during redirection
+            redirectTime: timing.redirectEnd - timing.redirectStart,
+            // AppCache
+            appcacheTime: timing.domainLookupStart - timing.fetchStart,
+            // Time spent unloading documents
+            unloadEventTime: timing.unloadEventEnd - timing.unloadEventStart,
+            // DNS query time
+            lookupDomainTime: timing.domainLookupEnd - timing.domainLookupStart,
+            // TCP connection time
+            connectTime: timing.connectEnd - timing.connectStart,
+            // Time spent during the request
+            requestTime: timing.responseEnd - timing.requestStart,
+            // Request to completion of the DOM loading
+            initDomTreeTime: timing.domInteractive - timing.responseEnd,
+            // Load event time
+            loadEventTime: timing.loadEventEnd - timing.loadEventStart,
+            // Origin of the request
+            react: true,
+            //isIsomorphic flag
+            isIsomorphic: window.HR.isIsomorphic,
+            //old css loaded flag
+            loadedWithOldCss: window.HR.loadedWithOldCss,
+          }
+
+          if (('navigation' in window.performance) && ('getEntries' in window.performance)) {
+            obj.navigationType = window.performance.navigation.type;
+            obj.navigationRedirectCount = window.performance.navigation.redirectCount;
+            if (obj.fullLoadTime > 8000) {
+              try {
+                var entries = window.performance.getEntries();
+                if(entries[0].toJSON){
+                  obj.networkRequests = entries.map(function(e) {return e.toJSON();});
+                }
+              } catch (e) {
+                //do nothing
+              }
+            }
+          }
+
+          hr_metrics.app_track('page-load-metrics', obj);
+        }, 1000);
+      });
+    }
+  
+
+  $(window).on("load", function() {
+      var _pathname = document.location.pathname;
+      var cdn_url_switched = Cookies.get("cdn_url_switched");
+      if (cdn_url_switched !== '') {
+        Cookies.remove('cdn_url_switched');
+      }
+      hr_metrics.batch_track('PageLoad', _pathname + document.location.search, {
+          attribute1: _pathname,
+          attribute6: cdn_url_switched,
+          cdn_url: Cookies.get("cdn_url")
+      });
+
+      if (hr_metrics.track_dwell_time) {
+          hr_metrics.track_dwell_time(_pathname);
+          hr_metrics.set_navigation_data();
+      }
+
+      $(window).on('beforeunload', function(){
+
+          var _pathname = document.location.pathname;
+          hr_metrics.batch_track('PageClose', _pathname + document.location.search, {
+              attribute2: _pathname
+          });
+
+          hr_metrics.track_dwell_time(_pathname, true);
+
+          hr_metrics.batch_track_record(true);
+      });
+
+  });
+
+</script>
+
+<!-- Facebook SDK -->
+<!-- Twitter SDK -->
+
+<!-- track button clicks -->
+<script>
+    $(document).on('click', 'a, button, input, select, i, div, span, h5', null, function(e) {
+        var src = e.currentTarget, $src = $(e.currentTarget);
+        if ($src.attr('data-analytics')) {
+            action = 'Click'; data = $src.attr('data-analytics');
+        } else {
+            return;
+        }
+
+        
+          hr_metrics.batch_track(action, data, (function() {
+              var params={};
+              for (var _i=1; _i<=12; ++_i){
+                  var _attr = 'data-attr'+_i;
+                  if ($src.attr(_attr)){
+                    params['attribute'+_i] = $src.attr(_attr);
+                  }
+              }
+              var attributes = src.attributes, attr_length = src.attributes.length;
+              for (var i = 0; i < attr_length; i++){
+                var attribute = attributes[i];
+                if (attribute.name.indexOf('data-attr-') === 0){
+                  param_name = attribute.name.substr('data-attr-'.length);
+                  if (param_name.length > 0) {
+                    params[param_name] = attribute.value;
+                  }
+                }
+              }
+              return params;
+          })());
+        
+
+        
+          // google analytics
+          _gaq.push(['_trackEvent', 'Events' , action, data])
+        
+    });
+
+    $(document).on('AnalyticsEvent', function(e) {
+        action = e.event_type || false;
+        data = e.event_name || false;
+
+        if (!action || !data) {
+          return;
+        }
+
+        params = {}
+        params['attribute1'] = e.event_value || ""
+        params['attribute7'] = e.integer_event_value
+
+        if (window.HR && window.HR.current_page) {
+          params['attribute2'] = window.HR.current_page;
+        }
+
+        if (window.HR && window.HR.current_contest) {
+          params['attribute3'] = window.HR.current_contest.get('name');
+        }
+
+        
+            hr_metrics.batch_track(action, data, params);
+        
+
+        
+          // google analytics
+          _gaq.push(['_trackEvent', 'Events' , action, data]);
+        
+    });
+
+  </script>
+<!-- track button clicks end-->
+
+<!-- Linkedin Insights -->
+
+
+
+
+</body></html>
