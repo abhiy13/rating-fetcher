@@ -11,8 +11,13 @@ def get_ratings(usernamehr , usernamecc , usernamecf):
 #  print(ratings)
   return ratings
 
+#uncomment the next line for debugging on local pc
+#pc = get_ratings('abhiy13' , 'abhiy13' , 'abhiroxx')
+
+#comment this wile debugging on local pc   
 pc = get_ratings(sys.argv[1] , sys.argv[2] , sys.argv[3])
 res = 0.000000000000000000000
+
 for x in pc:
   print("On {0} you have a Rating of {1}".format(x , pc[x]))
   if x == "Codeforces":

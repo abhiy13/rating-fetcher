@@ -1,0 +1,52 @@
+1537304102201	geckodriver	INFO	Listening on 127.0.0.1:41449
+1537304103341	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1537304106763	Marionette	INFO	Listening on port 33817
+1537304106858	Marionette	WARN	TLS certificate errors will be ignored for this session
+1537304106942	Marionette	DEBUG	[2147483649] Frame script loaded
+1537304106945	Marionette	DEBUG	[2147483649] Frame script registered
+1537304106967	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1537304109556	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1537304112435	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for https://www.hackerrank.com/shan61916?hr_r=1
+1537304116737	Marionette	DEBUG	[2147483649] Received DOM event pageshow for https://www.hackerrank.com/shan61916?hr_r=1
+1537304240528	geckodriver	INFO	Listening on 127.0.0.1:40585
+1537304241632	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1537304244788	Marionette	INFO	Listening on port 35737
+1537304244857	Marionette	WARN	TLS certificate errors will be ignored for this session
+1537304244920	Marionette	DEBUG	[2147483649] Frame script loaded
+1537304244970	Marionette	DEBUG	[2147483649] Frame script registered
+1537304244997	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1537304250593	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1537304254079	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for https://www.hackerrank.com/AbhiY13?hr_r=1
+[Child 13456, Chrome_ChildThread] WARNING: pipe error (19): Connection reset by peer: file /build/firefox-_R2Kgd/firefox-62.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 13456, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-_R2Kgd/firefox-62.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1537304262218	geckodriver	INFO	Listening on 127.0.0.1:42675
+1537304263314	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1537304266594	Marionette	INFO	Listening on port 36083
+1537304266637	Marionette	WARN	TLS certificate errors will be ignored for this session
+1537304266726	Marionette	DEBUG	[2147483649] Frame script loaded
+1537304266733	Marionette	DEBUG	[2147483649] Frame script registered
+1537304266745	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1537304268783	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1537304273653	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for https://www.hackerrank.com/AbhiY13?hr_r=1
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 13757, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-_R2Kgd/firefox-62.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1537304297031	geckodriver	INFO	Listening on 127.0.0.1:45525
+1537304298126	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1537304301513	Marionette	INFO	Listening on port 33003
+1537304301552	Marionette	WARN	TLS certificate errors will be ignored for this session
+1537304301615	Marionette	DEBUG	[2147483649] Frame script loaded
+1537304301616	Marionette	DEBUG	[2147483649] Frame script registered
+1537304301628	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1537304304473	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+[Child 14069, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-_R2Kgd/firefox-62.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1537304310930	geckodriver	INFO	Listening on 127.0.0.1:51215
+1537304312012	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1537304315587	Marionette	INFO	Listening on port 45801
+1537304315631	Marionette	WARN	TLS certificate errors will be ignored for this session
+1537304315719	Marionette	DEBUG	[2147483649] Frame script loaded
+1537304315725	Marionette	DEBUG	[2147483649] Frame script registered
+1537304315811	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1537304319155	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1537304321841	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for https://www.hackerrank.com/abhiy13?hr_r=1
+1537304327158	Marionette	DEBUG	[2147483649] Received DOM event pageshow for https://www.hackerrank.com/abhiy13?hr_r=1
