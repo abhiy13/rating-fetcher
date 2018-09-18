@@ -21,5 +21,6 @@ def get_rating(username):
   return ar[0]
 
 
-if(len(sys.argv[1]) == 'test'):
-  print(get_rating('abhiroxx'))
+if(len(sys.argv) > 1): 
+  if((sys.argv[1]) == 'test'):
+    print(get_rating('abhiroxx'))

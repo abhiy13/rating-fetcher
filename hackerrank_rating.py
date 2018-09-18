@@ -29,5 +29,6 @@ def get_rating(username):
   print(p[0], sep = " ")
   print("Recent Increase {}".format(p[1]))
 '''
-if(len(sys.argv[1]) == 'test'):
-  print(get_rating('AbhiY13'))
+if(len(sys.argv) > 1): 
+  if((sys.argv[1]) == 'test'):
+    print(get_rating('AbhiY13'))
