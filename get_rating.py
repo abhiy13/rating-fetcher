@@ -21,7 +21,20 @@ if(len(sys.argv) == 2):
     exit()
 
 if(len(sys.argv) != 4):
-  print("Invalid use !\nPlease try again with Correct Parameters\nFor help run $ python3 get_rating.py -h")
+  ratings = {'-cc' : 'Codechef' , '-hr' : 'Hackerrank' , '-cf' : 'Codeforces'}
+  output = []
+  for i in range(len(sys.argv)):
+    if sys.argv[i] == "-cc" and i + 1 < len(sys.argv):
+      output.append([ratings['-cc'] , cc.get_rating(sys.argv[i + 1])])
+    elif sys.argv[i] == "-cf" and i + 1 < len(sys.argv):
+      output.append([ratings['-cf'] , cf.get_rating(sys.argv[i + 1])])
+    elif sys.argv[i] == "-hr" and i + 1 < len(sys.argv):
+      output.append([ratings['-hr'] , hr.get_rating(sys.argv[i + 1])])
+  if len(output) == 0:
+    print("Invalid Arguments!")
+  else:
+    for i in output:
+      print('Your {0} Rating is {1}'.format(i[0] , i[1]))
   exit()
 
 pc = get_ratings(sys.argv[1] , sys.argv[2] , sys.argv[3])

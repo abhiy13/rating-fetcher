@@ -33,3 +33,20 @@
 [Parent 11057, Gecko_IOThread] WARNING: pipe error (37): Connection reset by peer: file /build/firefox-8oo9jx/firefox-62.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
 [Parent 11057, Gecko_IOThread] WARNING: pipe error (68): Connection reset by peer: file /build/firefox-8oo9jx/firefox-62.0+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
 1537387374096	Marionette	INFO	Stopped listening on port 46701
+1537410894661	geckodriver	INFO	Listening on 127.0.0.1:34105
+1537410895778	geckodriver::marionette	INFO	Starting browser /usr/lib/firefox/firefox.sh with args ["-marionette"]
+1537410907637	Marionette	INFO	Listening on port 36193
+1537410907804	Marionette	WARN	TLS certificate errors will be ignored for this session
+1537410907880	Marionette	DEBUG	[2147483649] Frame script loaded
+1537410907938	Marionette	DEBUG	[2147483649] Frame script registered
+1537410908159	Marionette	DEBUG	[2147483649] Received DOM event beforeunload for about:blank
+1537410916471	Marionette	DEBUG	[2147483649] Received DOM event pagehide for about:blank
+1537410920957	Marionette	DEBUG	[2147483649] Received DOM event DOMContentLoaded for https://www.hackerrank.com/abhiy13?hr_r=1
+1537410927364	Marionette	DEBUG	[2147483649] Received DOM event pageshow for https://www.hackerrank.com/abhiy13?hr_r=1
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2E00B1,name=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x2E00B1,name=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+1537410933487	Marionette	INFO	Stopped listening on port 36193
