@@ -21,6 +21,8 @@ def get_rating(username):
       userrat.append(i.text)
 #      print(i)
   return (userrat[0]).replace("ContestRating:" , "")
+# uncomment this for debugging
+
 '''
   ratings = soap.find_all('div' , class_ = 'rating-container')
   rat = ratings[0]
@@ -29,6 +31,7 @@ def get_rating(username):
   print(p[0], sep = " ")
   print("Recent Increase {}".format(p[1]))
 '''
+
 if(len(sys.argv) > 1): 
-  if((sys.argv[1]) == 'test'):
+  if((sys.argv[1]) == '--test'):
     print(get_rating('AbhiY13'))

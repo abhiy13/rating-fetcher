@@ -16,5 +16,5 @@ def get_rating(username):
 
 
 if(len(sys.argv) > 1): 
-  if((sys.argv[1]) == 'test'):
+  if((sys.argv[1]) == '--test'):
     print(get_rating('pieliedie'))

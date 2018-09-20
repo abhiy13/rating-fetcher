@@ -30,3 +30,7 @@ $ python get_rating.py -cc abhiy13 -hr abhiy13
 python get_rating.py -cc abhiy13
 //gets rating only from codechef
 ```
+
+## For testing
+- For testing run 
+  - `python get_rating.py --test`

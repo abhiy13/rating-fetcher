@@ -24,6 +24,7 @@ if(len(sys.argv) == 2):
 if(len(sys.argv) != 4):
   ratings = {'-cc' : 'Codechef' , '-hr' : 'Hackerrank' , '-cf' : 'Codeforces'}
   output = []
+  ok = False
   for i in range(len(sys.argv)):
     if sys.argv[i] == "-cc" and i + 1 < len(sys.argv):
       output.append([ratings['-cc'] , cc.get_rating(sys.argv[i + 1])])
@@ -31,7 +32,9 @@ if(len(sys.argv) != 4):
       output.append([ratings['-cf'] , cf.get_rating(sys.argv[i + 1])])
     elif sys.argv[i] == "-hr" and i + 1 < len(sys.argv):
       output.append([ratings['-hr'] , hr.get_rating(sys.argv[i + 1])])
-  if len(output) == 0:
+    elif sys.argv[i] == '--test':
+      ok = True
+  if len(output) == 0 and ok == False:
     print("Invalid Arguments!")
   else:
     for i in output:
