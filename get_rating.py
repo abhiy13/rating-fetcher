@@ -14,7 +14,16 @@ def get_ratings(usernamehr , usernamecc , usernamecf):
 #uncomment the next line for debugging on local pc
 #pc = get_ratings('abhiy13' , 'abhiy13' , 'abhiroxx')
 
-#comment this wile debugging on local pc   
+#comment this wile debugging on local pc
+if(len(sys.argv) == 2):
+  if(sys.argv[1] == "-h"):
+    print("Help In Progress!")
+    exit()
+
+if(len(sys.argv) != 4):
+  print("Invalid use !\nPlease try again with Correct Parameters\nFor help run $ python3 get_rating.py -h")
+  exit()
+
 pc = get_ratings(sys.argv[1] , sys.argv[2] , sys.argv[3])
 res = 0.000000000000000000000
 
@@ -25,4 +34,4 @@ for x in pc:
   else:
     res += float(pc[x])
 res = res / 3
-print("On Orion Rating you have a Rating of {0:.4f}".format(res))
+print("Your Orion Rating will be {0:.7f}".format(res))
