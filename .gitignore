@@ -1,3 +1,4 @@
 ven/
 .vscode/
 setup.py
+geckodriver.log
