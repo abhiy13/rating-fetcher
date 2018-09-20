@@ -15,3 +15,18 @@
 ```
 $ python get_rating <hackerrank_handle> <codechef_handle> <codeforces_handle>
 ```
+- However if you wish to get ratings from individual websites , you can use `-cc` for Codechef , `-cf` for codeforces , `-hr` for hackerrank followed by the username
+```
+$ python get_rating.py <-cc "Codechef handle"> | <-cf "codeforces handle"> | <-hr "Hackerrank Handle">
+```
+- examples:
+```
+$ python get_rating.py -cc abhiy13 -hr abhiy13 -cf abhiroxx
+// gets all ratings
+
+$ python get_rating.py -cc abhiy13 -hr abhiy13
+// gets ratings only from codechef and hackerrank
+
+python get_rating.py -cc abhiy13
+//gets rating only from codechef
+```
