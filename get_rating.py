@@ -14,10 +14,11 @@ def get_ratings(usernamehr , usernamecc , usernamecf):
 #uncomment the next line for debugging on local pc
 #pc = get_ratings('abhiy13' , 'abhiy13' , 'abhiroxx')
 
-#comment this wile debugging on local pc
+#comment this while debugging on local pc
 if(len(sys.argv) == 2):
-  if(sys.argv[1] == "-h"):
-    print("Help In Progress!")
+  if sys.argv[1] == "-h" or sys.argv[1] == "--help": 
+    with open("README.md" , "r") as f:
+      print(f.read())
     exit()
 
 if(len(sys.argv) != 4):
