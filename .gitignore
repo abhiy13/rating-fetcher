@@ -1,4 +1,4 @@
-ven/
+venv/
 .vscode/
 setup.py
 geckodriver.log
