@@ -21,13 +21,13 @@ $ python get_rating.py <-cc "Codechef handle"> | <-cf "codeforces handle"> | <-h
 ```
 - examples:
 ```
-$ python get_rating.py -cc abhiy13 -hr abhiy13 -cf abhiroxx
+$ python get_rating.py -cc pieliedie -hr abhiy13 -cf abhiroxx
 // gets all ratings
 
-$ python get_rating.py -cc abhiy13 -hr abhiy13
+$ python get_rating.py -cc pieliedie -hr abhiy13
 // gets ratings only from codechef and hackerrank
 
-python get_rating.py -cc abhiy13
+python get_rating.py -cc pieliedie
 //gets rating only from codechef
 ```
 
