@@ -34,3 +34,5 @@ python get_rating.py -cc pieliedie
 ## For testing
 - For testing run 
   - `python get_rating.py --test`
+
+## Fetching mechanism for many other websited will be integrated soon.
