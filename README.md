@@ -35,4 +35,4 @@ python get_rating.py -cc pieliedie
 - For testing run 
   - `python get_rating.py --test`
 
-## Fetching mechanism for many other websited will be integrated soon.
+## Fetching mechanism for many other websites will be integrated soon.
