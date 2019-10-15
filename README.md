@@ -7,7 +7,7 @@
 
 ## Installation
 **This tool works only with Python 3**
-- To install the dependencies run `$ pip install -r requirements.txt`
+- To install the dependencies run `pip install -r requirements.txt`
 - You need to have `geckodriver` installed in order to run this tool
 
 ## Usage
